@@ -94,7 +94,10 @@
         if (!entry.isIntersecting) return;
         var el = entry.target;
         var delay = parseFloat(el.getAttribute('data-rv-d')) || 0;
-        el.style.transitionDelay = (delay * 110) + 'ms';
+        // Stagger between items in a group. Kept short — the delay stacks on
+        // top of the fade itself, so the last item in a run of six waits for
+        // both before it appears.
+        el.style.transitionDelay = (delay * 55) + 'ms';
         el.setAttribute('data-rv-on', '1');
         observer.unobserve(el);
       });
