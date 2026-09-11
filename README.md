@@ -27,12 +27,46 @@ css/site.css        All styling
 js/site.js          All behaviour (animation, galleries, the form)
 fonts/              The two typefaces, served from here rather than Google
 images/             Photographs
+images/r/           Resized copies of those photographs — see below
 images/brand/       Logo, the signature artwork, favicons
 images/clients/     Client logos
 .nojekyll           Tells GitHub Pages to publish every file untouched
 robots.txt          Lets search engines in, and points them at the sitemap
 sitemap.xml         The list of pages, for search engines
 ```
+
+Alongside these sit a number of one-line **forwarding stubs**, which hold no
+content of their own and send the visitor to a real page:
+
+```
+home.html                 →  index.html          the old site's homepage address
+about.html                →  the-house.html
+about-us.html             →  the-house.html
+chauffeur-services.html   →  chauffeur.html
+concierge-services.html   →  concierge.html
+travel-services.html      →  journey.html
+contact-us.html           →  contact.html
+faq-1.html                →  faq.html
+privacy-policy.html       →  privacy.html
+insights.html             →  index.html
+
+schiphol-chauffeur.html   →  chauffeur.html      short addresses to hand out
+amsterdam-chauffeur.html  →  chauffeur.html
+roadshow.html             →  chauffeur.html
+wedding-car.html          →  fleet.html
+```
+
+The first group exists because the old Squarespace site used those addresses and
+search engines still hold them. The second group is new: clean addresses for
+print, advertising or the telephone.
+
+Each stub carries a `canonical` tag pointing at its destination, which is what
+stops it competing with the real page — **and also what stops it ranking on its
+own.** They are a convenience, not a source of search traffic. Ranking for
+*schiphol chauffeur* or *wedding car* needs real pages with real content on them.
+
+GitHub Pages serves these without the extension too, so `/schiphol-chauffeur`
+works as well as `/schiphol-chauffeur.html`.
 
 Every page carries its own address (`https://www.lohuissignature.nl/…`) in a
 `canonical` tag, so search engines know which domain is the real one. If the
@@ -56,20 +90,21 @@ Every link, image and stylesheet uses a **relative path**, so the site works
 unchanged at that temporary address and later at your own domain. Nothing needs
 editing when the domain is connected.
 
-### Connecting lohuissignature.nl and lohuissignature.com
+### The domains
 
-Not set up yet, by request. When you are ready it is two steps: add the domain
-under **Settings → Pages → Custom domain** (GitHub then creates a `CNAME` file
-here), and point the DNS records at GitHub from your Squarespace account.
+This is now live and correctly arranged. `CNAME` holds `www.lohuissignature.nl`,
+and the bare `lohuissignature.nl` issues a 301 to the `www` form at the
+registrar, which is exactly right: one address serves the site, the other points
+at it, and every page's `canonical` tag agrees with both.
 
-**GitHub Pages accepts only one custom domain.** So one of the two becomes the
-real address and the other must redirect to it, which is set up at the registrar
-rather than here. Pick one as the primary — usually the `.nl` for a Netherlands
-business — and have the `.com` forward to it.
+**`lohuissignature.com` does not resolve at all.** Anyone typing it gets nothing.
+Either point it at the `.nl` with a 301 at the registrar, or stop giving it out —
+but a domain that silently fails is the worst of the three options.
 
-This matters beyond tidiness: if both domains serve the same pages directly,
-search engines see two copies of every page and split the site's standing
-between them.
+**GitHub Pages accepts only one custom domain**, so any second domain has to
+redirect from the registrar rather than from here. This matters beyond tidiness:
+if two domains serve the same pages directly, search engines see two copies of
+every page and split the site's standing between them.
 
 ---
 
@@ -94,13 +129,89 @@ Two things worth knowing:
   design — one rule for each distinct style in the layout. Those are best left
   alone.
 
-### The menu on phones
+### The menu on phones and tablets
 
-Below 700px wide the four navigation links move behind a menu button in the top
+Below 900px wide the five navigation items move behind a menu button in the top
 right and open as a full-screen panel. Above that width the ordinary bar is
-used, exactly as before. It is the *same* four links in the page either way —
-the stylesheet simply presents them differently — so adding a link adds it to
-both.
+used, exactly as before. They are the *same* five items in the page either way —
+the stylesheet simply presents them differently — so adding one adds it to both.
+
+900px is where the bar runs out of room rather than a round number. Measured on
+the homepage, the space left between the logo and the far edge is 13px at 768px
+wide, 57px at 834px and 102px at 900px. So a tablet held upright folds the menu
+away; a tablet turned on its side (1024px, with 185px to spare) keeps the full
+bar. Raising the value folds the landscape tablet too.
+
+**Four media queries share that number** — the menu block, the short-screen
+block for a handset held sideways, the `min-width` block that forces the panel
+shut on wider screens, and the tap bar. Change one and change all four. The
+other `700px` queries in the file are about banner heights at phone width and
+have nothing to do with the menu; leave those alone.
+
+Two of the five are buttons: **Call us** and **Request contact**. In the panel
+they are held to a common width so they stack as a pair, which is what the
+`min-width` on `.nav-call` is for — it is set wider than the longer of the two
+labels, so both take it rather than only the shorter one. Rewording either
+button means checking that value still clears the longer label.
+
+### What search engines and AI assistants read
+
+Every content page carries a block of **structured data** — a `<script
+type="application/ld+json">` at the end of its `<head>`. It restates in machine
+form what the page already says in prose: the name, address, telephone number,
+the countries worked in, the four commissions, and who the founder is.
+
+Two things are worth knowing before touching it.
+
+**It must stay in the HTML.** It would be tidier to write it once and have
+`js/site.js` insert it into every page. Don't. Google runs JavaScript before
+reading a page, but most of the crawlers behind AI assistants do not — and they
+are a large part of why the block exists at all. Written into the file, it is
+read by everything.
+
+**Do not add a star rating to it.** `aggregateRating` is only permitted for
+reviews collected on this site. Copying the Google Business Profile rating into
+the markup breaches Google's guidelines and can earn a manual penalty. The
+profile is linked from `sameAs` instead, which is the sanctioned way.
+
+Beyond that, the FAQ page's eleven questions are repeated as `FAQPage` data and
+the fleet page's vehicles as an `ItemList`, which is what makes them quotable.
+After editing either page's text, update the block to match — or the two
+disagree, and the machine-readable half is the one that gets believed.
+
+To check a change, paste the page's source into
+[validator.schema.org](https://validator.schema.org/). All thirteen pages
+currently report zero errors and zero warnings.
+
+### Photographs and their resized copies
+
+The pages do not load the photographs in `images/` directly. Each `<img>` carries
+a `srcset` listing copies at 640, 1024, 1600 and 2400 pixels wide, held in
+`images/r/`, and the browser takes whichever fits the screen it is on. The
+original stays as the `src`, so anything that cannot read the list still works.
+
+This matters more than it sounds. The fleet page was sending 7.2 MB of
+photographs to every visitor, phones included; it now sends about 1 MB. The
+homepage went from roughly 3 MB to 275 KB.
+
+The `sizes` attribute next to each `srcset` tells the browser how wide the image
+will actually be *before* the stylesheet has loaded. Those values were measured
+in a browser at 375px and 1600px wide rather than estimated — if you change a
+layout enough to alter an image's width, the matching `sizes` value needs
+revisiting or the browser will choose badly.
+
+**After adding a photograph**, regenerate the copies:
+
+```bash
+mkdir -p images/r
+for w in 640 1024 1600 2400; do
+  cwebp -q 76 -m 6 -resize $w 0 images/YOUR-IMAGE.jpg -o images/r/YOUR-IMAGE-$w.webp
+done
+cwebp -q 76 -m 6 images/YOUR-IMAGE.jpg -o images/r/YOUR-IMAGE-full.webp
+```
+
+Skip any width larger than the original — enlarging a photograph only makes the
+file bigger. `cwebp` comes from `brew install webp`.
 
 ### Previewing before you publish
 
@@ -192,6 +303,20 @@ sees it.
 ## Details to confirm
 
 - The footer reads **© 2026 Lohuis Signature**.
+
+### The telephone number, off this site
+
+The site uses **+31 297 223 448** — in the footer, the new header link, the tap
+bar on phones, the enquiry form's failure message and the structured data. All
+fourteen pages agree.
+
+Everything Google still publishes shows **+31 (0) 297 233 488**, the retired
+number from the old site. That is Google's index being stale, and it will clear
+as the new pages are recrawled — but the **Google Business Profile is a separate
+thing and will not fix itself.** Check which number it carries; if it is the old
+one, it is misdirecting callers from the most visible surface the house owns, and
+the mismatch against this site also weakens local ranking, which rewards the same
+name, address and telephone number appearing identically everywhere.
 
 ### Image rights
 

@@ -531,10 +531,21 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
 }
 
 /* --------------------------------------------------------------------------
-   MOBILE MENU
-   On phones the four navigation items cannot fit across the top, so they move
-   behind a menu button and open as a full-screen panel. Above 700px nothing
-   below changes anything — the ordinary navigation bar is used.
+   MOBILE AND TABLET MENU
+   Below 900px the five navigation items move behind a menu button and open as
+   a full-screen panel. Above it nothing here changes anything — the ordinary
+   navigation bar is used.
+
+   900px is where the bar actually runs out of room rather than a round number:
+   measured on the homepage, the space left over between the logo and the far
+   edge is 13px at 768px wide, 57px at 834px and 102px at 900px. So every
+   tablet held upright folds the menu away, while a tablet turned on its side
+   (1024px, with 185px to spare) keeps the full bar. Raise this one value and
+   the landscape tablet folds too.
+
+   THREE PLACES MUST AGREE: this block, the short-screen block that follows it,
+   and the min-width block that forces the panel shut again on wider screens.
+   The tap bar further down is deliberately kept in step with them as well.
    -------------------------------------------------------------------------- */
 
 .nav-toggle {
@@ -572,7 +583,7 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
 [data-menu-open] .nav-toggle-bars::before { transform: translateY(7px)  rotate(45deg); }
 [data-menu-open] .nav-toggle-bars::after  { transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   /* Scoped to .js: with JavaScript off the button could never open the panel,
      so the ordinary navigation bar is left in place instead. */
   .js .nav-toggle { display: flex; position: relative; z-index: 2; }
@@ -623,20 +634,45 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
     margin-top: clamp(10px, 2vh, 20px);
     padding: 17px 30px;
   }
+
+  /* "Call us" is a button too, so it needs the button's padding rather than
+     the bare-link padding the rule above gives every other item — without it
+     the border would sit hard against the words. The two buttons then stand
+     together at the foot of the panel, separated by the panel's own gap
+     rather than by the extra space that sets the pair apart from the links. */
+  .js .page > header nav[data-ls-nav] > a.nav-call {
+    margin-top: clamp(10px, 2vh, 20px);
+    padding: 17px 30px;
+  }
+  .js .page > header nav[data-ls-nav] > a.nav-call + a:last-child { margin-top: 0; }
+
+  /* Sized to the longer of the two labels, so they stack as a tidy pair
+     instead of two different widths. */
+  .js .page > header nav[data-ls-nav] > a.nav-call,
+  .js .page > header nav[data-ls-nav] > a.nav-call + a:last-child {
+    text-align: center;
+    min-width: 16.5em;   /* wider than "Request contact" sets itself, or only
+                            the shorter label would take the hint */
+  }
 }
 
 /* A phone held sideways is short enough that the centred menu would be taller
    than the screen — and a centred flex column that overflows gets clipped at
    the top, out of reach. Start it from the top instead and let it scroll. */
-@media (max-width: 700px) and (max-height: 600px) {
+@media (max-width: 900px) and (max-height: 600px) {
   .js .page > header nav[data-ls-nav] {
     justify-content: flex-start;
     padding-top: clamp(74px, 20vh, 110px);
   }
+
+  /* Two buttons rather than one now sit at the foot of the panel, so the
+     extra space that sets them apart from the links is space this screen
+     cannot spare. The panel's own gap is separation enough here. */
+  .js .page > header nav[data-ls-nav] > a.nav-call { margin-top: 0; }
 }
 
-/* The panel is a phone layout; never leave it open on a wider screen. */
-@media (min-width: 701px) {
+/* The panel is a phone and tablet layout; never leave it open wider than that. */
+@media (min-width: 901px) {
   .js[data-menu-open] .page > header nav[data-ls-nav] {
     position: static;
     opacity: 1;
@@ -647,7 +683,7 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
 
 /* --------------------------------------------------------------------------
    HERO EYEBROW
-   "Aalsmeer · Europe-wide · By appointment" is too long for one line on a
+   "Schiphol · Europe-wide · By appointment" is too long for one line on a
    phone, and broke mid-phrase — leaving "Appointment" stranded by itself.
    Each half is now kept whole, and on small screens the second half takes its
    own line with the separating dot dropped.
@@ -859,3 +895,119 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
    -------------------------------------------------------------------------- */
 .hv4:hover { background: transparent;    box-shadow: inset 0 0 0 1px var(--accent); }
 .hv9:hover { background: var(--panel);   box-shadow: inset 0 0 0 1px var(--accent); }
+
+/* --------------------------------------------------------------------------
+   "CALL US" IN THE HEADER
+   The telephone number lived only in the footer, which on a long page meant
+   scrolling the whole way down to find the one action most of these visitors
+   want. It now sits in the navigation on every page, immediately before
+   "Request contact".
+
+   It carries the same .s7 button shape and the same border as "Request
+   contact", so the two read as a matched pair. They are told apart by what
+   they do on hover rather than by how they sit still: this one brings its
+   border up to full, while "Request contact" fills solid — the louder of the
+   two gestures, kept for the louder of the two actions.
+   -------------------------------------------------------------------------- */
+.nav-call {
+  color: inherit;
+  transition: border-color .4s ease;
+}
+.nav-call:hover { border-color: rgba(241, 237, 229, .8); }
+
+/* --------------------------------------------------------------------------
+   TAP BAR
+   Below 900px the navigation folds behind the menu button, so the header's
+   "Call us" goes with it and the screen is left with no visible way to call
+   from any page. This puts the two channels this house actually answers — the
+   telephone and WhatsApp — along the bottom of the screen instead.
+
+   Its width therefore tracks the menu's, not a phone size: the bar exists to
+   replace what the menu button hides, so the two turn on together. If it is
+   ever wanted on phones alone, this is the one value to change — but then a
+   tablet held upright has a hidden telephone number again.
+
+   It is a sibling of .page rather than a child, so nothing in the page's own
+   stacking or overflow can trap it. The page is given matching bottom padding
+   so the bar never covers the closing call-to-action, and it is taken away
+   entirely while the menu panel is open, where it would sit on top of it.
+   -------------------------------------------------------------------------- */
+.tapbar { display: none; }
+
+@media (max-width: 900px) {
+  .tapbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;               /* under the menu panel, over the page */
+    border-top: 1px solid rgba(241, 237, 229, .10);
+    /* Clears the home indicator on phones that have one. */
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+    /* Read the note below before lightening this. Without a backdrop filter
+       there is nothing softening what shows through, so this stays nearly
+       solid; the translucent version is applied only where the blur exists. */
+    background: rgba(12, 12, 11, .92);
+  }
+
+  /* The bar sat as a solid black slab across the foot of every page. Letting
+     the page through instead makes it sit on the page rather than on top of
+     it — blurred, so the words stay the only sharp thing in it.
+
+     Two ways to keep pale type legible over a bar that crosses both the dark
+     footer and the bone ground: paint black over the page, or dim the page
+     itself. Painting was tried first and needed .62 to hold 4.5:1, which is
+     most of the way back to a slab.
+
+     `brightness` in the backdrop filter dims instead. It scales what is behind
+     the bar rather than covering it, so the shapes and the warmth of the page
+     still come through — smoked glass rather than paint — and the black layer
+     drops to .25. Contrast goes up, not down: the worst case, the full-width
+     bone ground, reads about 5.7:1 against 4.9:1 before.
+
+     `brightness` is the dial if this wants to be lighter still. Raising it
+     lightens the bar and lowers contrast; the floor is around .58, where the
+     bone ground reaches 4.5:1 and small pale type runs out of road. */
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .tapbar {
+      background: rgba(12, 12, 11, .25);
+      -webkit-backdrop-filter: blur(22px) saturate(115%) brightness(.5);
+      backdrop-filter: blur(22px) saturate(115%) brightness(.5);
+    }
+  }
+
+  .tapbar-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;          /* a comfortable tap target */
+    color: var(--on-dark);
+    font-size: 10.5px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  /* A hairline between the two rather than a box around each. */
+  .tapbar-item + .tapbar-item { border-left: 1px solid rgba(241, 237, 229, .14); }
+
+  .tapbar-item:active { background: rgba(241, 237, 229, .08); }
+
+  /* Room at the foot of the page so the bar covers nothing.
+
+     This sits on the footer rather than on .page. Put on .page it made a
+     53px strip of bone below the dark footer — invisible while the bar was
+     solid, but the moment the bar let the page through, scrolling to the
+     bottom turned it pale as it crossed from footer to strip. Growing the
+     footer instead carries its dark all the way down, so the bar keeps one
+     backdrop, and the closing line keeps the breathing room the design
+     gave it (the clamp below is .s79's own bottom padding, plus the bar). */
+  .page > footer {
+    padding-bottom: calc(clamp(30px, 4vh, 44px) + 53px + env(safe-area-inset-bottom, 0px));
+  }
+
+  [data-menu-open] .tapbar { display: none; }
+}
