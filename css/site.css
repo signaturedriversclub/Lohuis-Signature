@@ -445,3 +445,31 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
 
 /* Focus states */
 .fc1:focus{border-color:var(--accent)}
+
+/* ==========================================================================
+   RESPONSIVE CORRECTIONS
+   Written by hand, and kept last so these rules win over the generated ones.
+   ========================================================================== */
+
+/* The three "Discretion / Small by design / Our car or yours" panels on the
+   homepage, and the three retainer panels, are laid out by `auto-fit`. On a
+   tablet that resolves to two columns — leaving a third item on its own and an
+   empty fourth cell, which showed as a coloured block because the grid paints
+   its gaps. Three columns or one, never two. */
+@media (min-width: 920px) {
+  .s64,
+  .s153 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 919px) {
+  .s64,
+  .s153 { grid-template-columns: 1fr; }
+
+  /* Stacked, the panels must all start at the same edge. The design gives the
+     first no left padding and the last no right padding, which only reads
+     correctly when the three sit side by side. */
+  .s64 > [class] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
