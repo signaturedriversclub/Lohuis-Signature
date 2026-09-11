@@ -827,3 +827,7 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
   opacity: .55;
   cursor: default;
 }
+
+/* Two paragraphs in a row inside a policy section need a gap; the design only
+   ever had one. */
+.s245 + .s245 { margin-top: 18px; }

@@ -136,6 +136,31 @@ helps nobody.
 Every message carries a **Preferred reply** line saying Telephone or Email, and
 the subject follows the choice too.
 
+### The form service and the privacy page
+
+The form backend is **Web3Forms**, operated by Web3Creative from **India**. What
+that means, and what the privacy page now discloses:
+
+- Transfers leave the EEA; the Standard Contractual Clauses cover them.
+- Retention is set to **thirty days** in the Web3Forms dashboard, and the
+  privacy page says thirty days. See the caution below.
+- Each submission's IP address and email also reach **CleanTalk** and
+  **Akismet** (both US) for spam filtering.
+- Their session-replay sub-processor never sees your visitors — your pages load
+  no script of theirs; the form posts straight to their API.
+
+Their DPA is at web3forms.com/dpa. It binds on use, but accept it in the
+dashboard so there is a dated record. You are the controller, they are the
+processor.
+
+**Worth confirming.** Their DPA says submission data has "a physical
+time-to-live of three years, with dashboard visibility governed by the
+Customer's plan". That wording suggests the setting you control may govern how
+long a submission stays *visible* rather than when it is actually deleted. Ask
+them which the thirty-day setting does. If it only hides the submission, the
+privacy page understates the retention and should say something closer to
+"thirty days, and cleared from its systems within three years".
+
 ### Keys
 
 The Web3Forms access key lives in two places, both of which must match:
@@ -170,20 +195,20 @@ sees it.
 
 ### Image rights
 
-Settled: the Retainer photograph (`images/spirit-of-ecstasy.webp`) is used with
-the photographer's agreement, and the client logos on The House are shown with
-the clients' permission. The FAQ now says discretion holds "unless a client has
-specifically agreed otherwise", which is what those logos rely on.
+All confirmed and on record:
 
-Camera and editing data has been stripped from every photograph — it removes
-serial numbers and location traces that have no business on a public site.
+- `images/home-concierge.jpg` — Shutterstock, ID **2300154693**, Jeremy Walter.
+  Licence held. Keep the licence receipt somewhere you can find it; stock
+  libraries audit, and the file itself no longer carries the proof.
+- `images/spirit-of-ecstasy.webp` — used with the photographer's agreement.
+- The six client logos on The House — shown with the clients' permission. The
+  FAQ says discretion holds "unless a client has specifically agreed
+  otherwise", which is what those logos rely on.
 
-**One photograph is still unresolved.** `images/home-concierge.jpg` — the gloved
-attendant, on the homepage and the Commissions page — is a Shutterstock image
-(ID 2300154693, Jeremy Walter) and carries "No use without permission" inside
-the file. Its data has deliberately been left untouched. If you hold a licence,
-nothing needs doing. If you do not, replace the picture before the site goes
-live; stripping the notice would make the position worse rather than better.
+Camera, editing and copyright data has been stripped from every photograph.
+That removes serial numbers and location traces that have no business on a
+public site, and trims the download — but it also means the files themselves no
+longer evidence where they came from. The list above is now the record.
 
 Two things are settled and correct as they stand: the contact address
 **info@lohuissignature.nl** matches this site's own domain, and the seventeen
