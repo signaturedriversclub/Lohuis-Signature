@@ -203,6 +203,15 @@
   /* --- Enquiry form ------------------------------------------------------- */
   var form = document.querySelector('[data-enquiry-form]');
   if (form) {
+    /* Each half of the "Reply by" toggle posts to its own Web3Forms form, so
+       call requests and email requests arrive separately. The matching key is
+       written into the form's hidden access_key field whenever the toggle
+       changes — see setMode below. */
+    var WEB3FORMS_KEY = {
+      call:  'cebafb4f-452f-4a71-8c5c-46de4f214be3',
+      email: '20dbeb2d-caf2-45eb-bb36-7bbf2d556fdd'
+    };
+
     var COPY = {
       call: {
         title: 'Request a call',
@@ -231,6 +240,17 @@
         toggles[i].setAttribute('aria-pressed', isOn ? 'true' : 'false');
       }
       document.title = COPY[next].title + ' — Lohuis Signature';
+
+      // Keep the posted fields in step, so a submission without JavaScript
+      // still carries the right key and subject.
+      var keyField = form.elements['access_key'];
+      var subjField = form.elements['subject'];
+      if (keyField) keyField.value = WEB3FORMS_KEY[next];
+      if (subjField) subjField.value = COPY[next].title + ' — Lohuis Signature';
+
+      // Clear any message left from a previous attempt.
+      var st = form.querySelector('[data-form-status]');
+      if (st && st.getAttribute('data-state') === 'error') st.hidden = true;
     };
 
     for (var t = 0; t < toggles.length; t++) {
@@ -249,6 +269,28 @@
     applyHash();
     window.addEventListener('hashchange', applyHash);
 
+    /* --- Sending -------------------------------------------------------- */
+    /* Posted to Web3Forms in the background so the visitor stays on the page
+       and gets an answer in the site's own voice. If JavaScript is unavailable
+       the form still submits normally to the same address — Web3Forms shows
+       its own confirmation page in that case. */
+
+    var status = form.querySelector('[data-form-status]');
+
+    var say = function (message, ok) {
+      if (!status) return;
+      status.textContent = message;
+      status.hidden = false;
+      status.setAttribute('data-state', ok ? 'ok' : 'error');
+    };
+
+    var stop = function (fieldName, message) {
+      var field = form.elements[fieldName];
+      say(message, false);
+      if (field) { field.focus(); }
+      return true;
+    };
+
     form.addEventListener('submit', function (event) {
       event.preventDefault();
 
@@ -257,36 +299,39 @@
         return field && field.value ? field.value.trim() : '';
       };
 
-      if (!value('name')) {
-        var nameField = form.elements['name'];
-        if (nameField) { nameField.focus(); nameField.reportValidity && nameField.reportValidity(); }
-        return;
-      }
+      if (!value('first_name')) return stop('first_name', 'A first name, please.');
+      if (!value('surname'))    return stop('surname', 'A surname, please.');
+      // Asking to be telephoned without a number, or written to without an
+      // address, leaves us no way to answer.
+      if (mode === 'call'  && !value('phone')) return stop('phone', 'A telephone number, so we can call you.');
+      if (mode === 'email' && !value('email')) return stop('email', 'An email address, so we can write to you.');
 
-      var isCall = mode === 'call';
-      var subject = isCall
-        ? 'Request a call — Lohuis Signature'
-        : 'Request an email — Lohuis Signature';
+      var button = form.querySelector('button[type="submit"]');
+      var original = button ? button.textContent : '';
+      if (button) { button.disabled = true; button.textContent = 'Sending'; }
+      say('Sending your enquiry.', true);
 
-      var rows = [
-        ['Name', value('name')],
-        ['Telephone', value('phone')],
-        ['Email', value('email')],
-        ['Dates', value('dates')],
-        ['Party', value('party')],
-        ['Preferred reply', isCall ? 'Telephone' : 'Email']
-      ].filter(function (row) {
-        return row[1];
-      }).map(function (row) {
-        return row[0] + ': ' + row[1];
+      var data = {};
+      new FormData(form).forEach(function (v, k) { data[k] = v; });
+      data.subject = COPY[mode].title + ' \u2014 Lohuis Signature';
+      data['Preferred reply'] = mode === 'call' ? 'Telephone' : 'Email';
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (response) {
+        return response.json().then(function (body) { return { ok: response.ok, body: body }; });
+      }).then(function (result) {
+        if (!result.ok) throw new Error(result.body && result.body.message);
+        form.reset();
+        setMode(mode);
+        say('Thank you — your enquiry is with us. You will hear from one of two people, usually within the day.', true);
+        if (button) { button.textContent = 'Sent'; }
+      }).catch(function () {
+        say('That did not send. Please telephone +31 297 223 448 or write to info@lohuissignature.nl.', false);
+        if (button) { button.disabled = false; button.textContent = original; }
       });
-
-      var message = value('message');
-      if (message) rows.push('', message);
-
-      window.location.href = 'mailto:info@lohuissignature.nl' +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(rows.join('\n'));
     });
   }
 })();

@@ -11,6 +11,65 @@
       possible but they are best left alone.
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   FONTS — self-hosted
+   Newsreader and Jost are served from this repository rather than from
+   Google's servers. Loading them from Google sends every visitor's IP address
+   to Google before they have agreed to anything, which EU courts have held to
+   breach the GDPR. Serving the files ourselves removes the third party
+   altogether — and the page no longer depends on Google being reachable.
+   Both families are licensed under the SIL Open Font License 1.1, which
+   permits this; see fonts/OFL.txt.
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(../fonts/jost-300.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/jost-400.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 200;
+  font-display: swap;
+  src: url(../fonts/newsreader-200-italic.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(../fonts/newsreader-300-italic.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(../fonts/newsreader-200.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(../fonts/newsreader-300.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* --- Brand palette -------------------------------------------------------- */
 :root {
   --ground:  #F1EDE5;   /* page background            */
@@ -160,8 +219,10 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
 
 /* --- Small screens -------------------------------------------------------- */
 @media (max-width: 640px) {
-  /* Keep the tallest hero sections from running past a phone screen. */
-  .page > main > section:first-child { min-height: 88vh; }
+  /* Keep the full-height homepage hero from running past a phone screen.
+     Scoped to .s8 — applied to every banner it stretched the shorter inner-page
+     ones to 88vh as well, which left them mostly empty. */
+  .page > main > section:first-child.s8 { min-height: 88vh; }
 }
 
 
@@ -578,4 +639,191 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
     visibility: visible;
     transform: none;
   }
+}
+
+/* --------------------------------------------------------------------------
+   HERO EYEBROW
+   "Aalsmeer · Europe-wide · By appointment" is too long for one line on a
+   phone, and broke mid-phrase — leaving "Appointment" stranded by itself.
+   Each half is now kept whole, and on small screens the second half takes its
+   own line with the separating dot dropped.
+   -------------------------------------------------------------------------- */
+.eyebrow-a,
+.eyebrow-b { white-space: nowrap; }
+
+@media (max-width: 520px) {
+  .eyebrow-sep { display: none; }
+  .eyebrow-b { display: block; }
+}
+
+/* --------------------------------------------------------------------------
+   HERO FOOTER STRIP  (Chauffeur / Concierge / Journeys / Retained)
+   Four equal columns on a wide screen. Narrower, `auto-fit` dropped it to two
+   columns and left the right-hand pair stranded mid-page — and at in-between
+   widths it gave three columns with a lone fourth beneath. Pinned to a tidy
+   two-by-two below the same 700px the menu uses, with the right-hand pair held
+   in from the page edge so the four still read as a single row.
+   -------------------------------------------------------------------------- */
+@media (max-width: 699px) {
+  /* The second column is only as wide as its longest label, so "Concierge" and
+     "Retained" share a left edge the way "Chauffeur" and "Journeys" do —
+     right-aligning them instead left their left edges ragged.
+
+     Both pairs are then held the same distance in from their page margin, so
+     the block sits centred rather than pushed out to the two edges. One value
+     drives both sides: raise it to draw them further in, lower it to let them
+     back out. */
+  .s23 {
+    grid-template-columns: 1fr max-content;
+    --strip-inset: clamp(16px, 8vw, 56px);
+  }
+  .s23 > :nth-child(odd)  { margin-left:  var(--strip-inset); }
+  .s23 > :nth-child(even) { margin-right: var(--strip-inset); }
+}
+
+/* --------------------------------------------------------------------------
+   PAIRED CALL-TO-ACTION BUTTONS
+   Each button is sized to its own label, so once they stack on a phone the
+   difference in width shows plainly. Below 560px they become one column as
+   wide as the longer label, and both fill it.
+   -------------------------------------------------------------------------- */
+@media (max-width: 560px) {
+  .s76,    /* "Request a call" / "Request an email" — the closing panel */
+  .s19,    /* "The commissions" / "Begin an enquiry" — the homepage hero */
+  .s228 {  /* "Send the enquiry" / "Send WhatsApp" — the enquiry form */
+    display: grid;
+    grid-template-columns: max-content;
+  }
+
+  .s76 > a,
+  .s19 > a,
+  .s228 > * { text-align: center; }
+}
+
+/* --------------------------------------------------------------------------
+   INNER-PAGE BANNERS ON A PHONE
+   Every page but the homepage opens on a shorter banner. At phone width the
+   designed heights (up to 84vh) and the deep top padding meant for a desktop
+   left the heading stranded near the bottom of an otherwise empty screen.
+   Here the banner is sized to its content, with a floor so the photograph
+   still reads as an image rather than a strip.
+   -------------------------------------------------------------------------- */
+@media (max-width: 700px) {
+  /* A set height per group, rather than each page finding its own.
+     Each value clears the tallest content in its group, so every page in a
+     group comes out at exactly the same height.
+
+       48vh  (tallest content 46.8vh — Fleet)
+       44vh  (tallest content 38.6vh — Enquiry form)
+       30vh  (tallest content 27.7vh — Privacy, Terms)   */
+
+  /* Chauffeur, Concierge, Retainer, Journey, Commissions, Fleet,
+     The House, Request contact */
+  .s93,
+  .s112,
+  .s140,
+  .s177,
+  .s197 { min-height: 48vh; }
+
+  /* Enquiry form, Questions */
+  .s213 { min-height: 44vh; }
+
+  /* Privacy, Terms */
+  .s238 { min-height: 30vh; }
+
+  /* The design bottom-aligns this text, which works only when the banner is
+     as tall as its content. At a set height it would drop the heading down
+     the screen on the shorter pages, so anchor it to the top instead — every
+     heading then lands in the same place on every page. */
+  .s93, .s112, .s140,
+  .s177, .s197, .s213,
+  .s238 { align-items: flex-start; }
+
+  /* Enough clearance for the fixed header, and no more. */
+  .s96,     /* chauffeur, concierge, retainer, journey, commissions, fleet, the house */
+  .s199,    /* request contact */
+  .s215,    /* enquiry form, questions */
+  .s239 {   /* privacy, terms */
+    padding-top: clamp(92px, 13vh, 130px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   COMMISSIONS BANNER FRAMING
+   The photograph is a tall portrait shot (2500x3750) with the car low in the
+   frame, used in banners that are much wider than they are tall. The design's
+   crop cut the car off at every size — wheels gone on a phone, everything but
+   the roofline gone on a desktop. These pull the crop down to the car.
+
+   The wider the screen, the shallower the slice of the photograph that shows,
+   so the usable range narrows: 69-100% at tablet width, 84.3-84.6% at 1920px.
+   84.5% is the one value inside all of them.
+   -------------------------------------------------------------------------- */
+.s94 {
+  /* The slow zoom scales from the centre by default, which crops the wheels
+     back off while it runs. Anchor it to the foot of the image instead. */
+  transform-origin: 50% 100%;
+}
+
+/* Tablet and desktop */
+@media (min-width: 701px) {
+  .s94 { object-position: 50% 84.5%; }
+}
+
+/* Phones — the banner is tall enough here to sit right at the foot. */
+@media (max-width: 700px) {
+  .s94 { object-position: 50% 100%; }
+}
+
+/* --------------------------------------------------------------------------
+   RETAINER BANNER FRAMING
+   This photograph (1082x725) is wider than the banner is on a phone or a
+   tablet, so `cover` sizes it by width and the whole height shows — the full
+   grille and the photographer's watermark along the bottom edge with it.
+   (On a desktop the banner is wide enough that the bottom is cropped away
+   naturally, which is why it only shows on the smaller screens.)
+
+   Letting the image run taller than the banner crops it from the foot: the
+   visible slice ends around row 678 of 725, which leaves the top line of the
+   grille just showing and keeps the watermark out of frame.
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .s149 {
+    height: 107%;
+    bottom: auto;   /* anchor to the top; the surplus is clipped at the foot */
+    /* Held in reserve for a tablet turned sideways: there the banner is wide
+       enough that the image is sized by width and does crop vertically, and
+       the design's 22% would cut off just above the grille. Portrait screens
+       crop by width instead, so this has no effect on them. */
+    object-position: 50% 90%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ENQUIRY FORM — sending
+   -------------------------------------------------------------------------- */
+
+/* Honeypot. Hidden from people and from screen readers; bots fill it in and
+   the submission is discarded. Not display:none, which some bots skip. */
+.hp-field {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px; height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form-status {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.7;
+  max-width: 52ch;
+}
+.form-status[data-state="ok"]    { color: var(--accent); }
+.form-status[data-state="error"] { color: #8A2F26; }
+
+/* While sending, and once sent. */
+[data-enquiry-form] button[type="submit"][disabled] {
+  opacity: .55;
+  cursor: default;
 }

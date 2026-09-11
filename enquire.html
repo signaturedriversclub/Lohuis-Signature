@@ -11,15 +11,14 @@
 <meta property="og:site_name" content="Lohuis Signature">
 <meta property="og:title" content="Begin an Enquiry — Lohuis Signature">
 <meta property="og:description" content="Tell us the dates, the party and anything sensitive we should know. One of two people reads every enquiry.">
-<meta property="og:image" content="https://www.lohuissignature.nl/images/home-hero.jpeg">
+<meta property="og:image" content="https://www.lohuissignature.nl/images/home-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#141311">
 <link rel="icon" href="images/brand/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="images/brand/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/newsreader-200.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost-300.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/site.css">
 <script>document.documentElement.className+=" js";</script>
 </head>
@@ -52,23 +51,35 @@
 
     <section class="s219">
       <div class="s54">
-        <form data-enquiry-form novalidate data-rv="1" class="s220">
+        <form data-enquiry-form novalidate data-rv="1" class="s220"
+                action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="cebafb4f-452f-4a71-8c5c-46de4f214be3">
+          <input type="hidden" name="subject" value="Request a call &#8212; Lohuis Signature">
+          <input type="hidden" name="from_name" value="Lohuis Signature website">
+          <!-- Honeypot: left empty by people, filled in by bots. -->
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp-field">
           <div class="s221">
             <span class="s222">Reply by</span>
             <button type="button" data-mode="call" aria-pressed="true" class="s223 hv15">Telephone</button>
             <button type="button" data-mode="email" aria-pressed="false" class="s223 hv15">Email</button>
           </div>
-          <label class="s224">
-            <span class="s35">Name</span>
-            <input name="name" type="text" required="required" autoComplete="name" class="s225 fc1">
-          </label>
+          <div class="s226">
+            <label class="s224">
+              <span class="s35">First name</span>
+              <input name="first_name" type="text" required="required" autocomplete="given-name" class="s225 fc1">
+            </label>
+            <label class="s224">
+              <span class="s35">Surname</span>
+              <input name="surname" type="text" required="required" autocomplete="family-name" class="s225 fc1">
+            </label>
+          </div>
           <label class="s224">
             <span class="s35">Telephone</span>
-            <input name="phone" type="tel" autoComplete="tel" class="s225 fc1">
+            <input name="phone" type="tel" autocomplete="tel" class="s225 fc1">
           </label>
           <label class="s224">
             <span class="s35">Email</span>
-            <input name="email" type="email" autoComplete="email" class="s225 fc1">
+            <input name="email" type="email" autocomplete="email" class="s225 fc1">
           </label>
           <div class="s226">
             <label class="s224">
@@ -84,6 +95,7 @@
             <span class="s35">The commission</span>
             <textarea name="message" rows="5" placeholder="Dates, timings, party and anything sensitive we should know." class="s227 fc1"></textarea>
           </label>
+          <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
           <div class="s228">
             <button type="submit" class="s229 hv13">Send the enquiry</button>
             <a href="https://wa.me/31622429270" target="_blank" rel="noopener" class="s230 hv12">Send WhatsApp</a>
@@ -110,8 +122,8 @@
       <div class="s74">
         <div class="s75"></div>
         <div class="s76">
-          <a href="mailto:info@lohuissignature.nl?subject=Request%20a%20call%20%E2%80%93%20Lohuis%20Signature&amp;body=Please%20call%20me%20on%3A%0A%0ABest%20time%3A%0A" class="s77 hv6">Request a call</a>
-          <a href="mailto:info@lohuissignature.nl?subject=Enquiry%20%E2%80%93%20Lohuis%20Signature" class="s78 hv7">Request an email</a>
+          <a href="enquire.html#call" class="s77 hv6">Request a call</a>
+          <a href="enquire.html#email" class="s78 hv7">Request an email</a>
         </div>
       </div>
     </div>
@@ -145,8 +157,8 @@
         <div>
           <div class="s83">Details</div>
           <div class="s87">
+            <a href="tel:+31297223448" class="s88 hv8">+31 297 223 448</a>
             <a href="mailto:info@lohuissignature.nl" class="s88 hv8">info@lohuissignature.nl</a>
-            <span>Twijnderlaan 19, Aalsmeer</span>
             <span>KvK 76937690</span>
             <span>VAT NL00460544B82</span>
           </div>

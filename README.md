@@ -25,6 +25,7 @@ terms.html          Terms
 
 css/site.css        All styling
 js/site.js          All behaviour (animation, galleries, the form)
+fonts/              The two typefaces, served from here rather than Google
 images/             Photographs
 images/brand/       Logo, the signature artwork, favicons
 images/clients/     Client logos
@@ -113,36 +114,76 @@ Then open `http://localhost:8000` in a browser. Press `Ctrl+C` to stop.
 
 ---
 
-## The enquiry form — please read
+## The enquiry form
 
-The form on `enquire.html` does **not** send anything by itself. A static site
-has no server, so when a visitor presses *Send the enquiry* their own email
-program opens with the details already filled in, ready for them to send.
+The form on `enquire.html` posts to **Web3Forms**, so enquiries arrive in your
+inbox and every visitor can send one — no email program required.
 
-**This works, but not for everybody.** A visitor whose device has no email
-program set up — common on phones, and for anyone using Gmail in a browser —
-will press the button and see nothing happen. They will assume the enquiry was
-sent. **You would never know they tried.**
+It is one form serving two requests. The "Reply by" toggle at the top decides
+which, and the footer buttons across the site open it with the choice already
+made:
 
-Fixing it takes about ten minutes and costs nothing:
+| Link | Opens | Reply by |
+|---|---|---|
+| Request a call | `enquire.html#call` | Telephone |
+| Request an email | `enquire.html#email` | Email |
 
-1. Create a free account at [formspree.io](https://formspree.io) and add a new
-   form. It gives you an address that looks like `https://formspree.io/f/abcdwxyz`.
-2. In `enquire.html`, find the line beginning `<form data-enquiry-form` and
-   change it to:
-   `<form action="https://formspree.io/f/abcdwxyz" method="POST"`
-   (using your own address, and removing `data-enquiry-form`).
-3. In `js/site.js`, delete the block that begins `form.addEventListener('submit'`
-   — the form then submits normally instead.
+**Fields:** first name, surname (both required), telephone, email, dates, party,
+the commission. A call request requires a telephone number and an email request
+requires an email address — asking to be reached with no way of reaching you
+helps nobody.
 
-Enquiries will arrive in your inbox, and every visitor can send one. The
-WhatsApp button and the email addresses elsewhere on the site are unaffected.
+Every message carries a **Preferred reply** line saying Telephone or Email, and
+the subject follows the choice too.
+
+### Keys
+
+The Web3Forms access key lives in two places, both of which must match:
+
+- `enquire.html` — the hidden `access_key` field (used if JavaScript is off)
+- `js/site.js` — the `WEB3FORMS_KEY` block near the enquiry-form section
+
+`WEB3FORMS_KEY` holds one key per half of the toggle, so call requests and
+email requests arrive in separate Web3Forms forms:
+
+```
+call   cebafb4f-452f-4a71-8c5c-46de4f214be3
+email  20dbeb2d-caf2-45eb-bb36-7bbf2d556fdd
+```
+
+The hidden field in `enquire.html` starts on the call key and the script swaps
+it when the toggle changes. With JavaScript switched off the toggle cannot
+move, so the form stays on "Request a call" and posts the call key — which is
+the honest outcome rather than a mismatch.
+
+### If it fails
+
+The visitor sees "That did not send. Please telephone…" with your number, and
+nothing they typed is lost. A hidden field catches bots; a real person never
+sees it.
 
 ---
 
 ## Details to confirm
 
 - The footer reads **© 2026 Lohuis Signature**.
+
+### Image rights
+
+Settled: the Retainer photograph (`images/spirit-of-ecstasy.webp`) is used with
+the photographer's agreement, and the client logos on The House are shown with
+the clients' permission. The FAQ now says discretion holds "unless a client has
+specifically agreed otherwise", which is what those logos rely on.
+
+Camera and editing data has been stripped from every photograph — it removes
+serial numbers and location traces that have no business on a public site.
+
+**One photograph is still unresolved.** `images/home-concierge.jpg` — the gloved
+attendant, on the homepage and the Commissions page — is a Shutterstock image
+(ID 2300154693, Jeremy Walter) and carries "No use without permission" inside
+the file. Its data has deliberately been left untouched. If you hold a licence,
+nothing needs doing. If you do not, replace the picture before the site goes
+live; stripping the notice would make the position worse rather than better.
 
 Two things are settled and correct as they stand: the contact address
 **info@lohuissignature.nl** matches this site's own domain, and the seventeen
