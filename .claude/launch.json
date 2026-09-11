@@ -4,8 +4,12 @@
     {
       "name": "site",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8000"],
-      "port": 8000
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8010"
+      ],
+      "port": 8010
     }
   ]
 }

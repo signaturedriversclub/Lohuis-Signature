@@ -26,6 +26,60 @@
     syncHeader();
   }
 
+  /* --- Mobile menu -------------------------------------------------------- */
+  var toggle = document.querySelector('.nav-toggle');
+  var menu = document.getElementById('site-menu');
+
+  if (toggle && menu) {
+    var root = document.documentElement;
+
+    var isOpen = function () {
+      return toggle.getAttribute('aria-expanded') === 'true';
+    };
+
+    var setMenu = function (open) {
+      if (open) { root.setAttribute('data-menu-open', ''); }
+      else { root.removeAttribute('data-menu-open'); }
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
+    };
+
+    toggle.addEventListener('click', function () {
+      setMenu(!isOpen());
+    });
+
+    // Following a link closes the panel — it matters when the link is to the
+    // page you are already on, where nothing else would close it.
+    menu.addEventListener('click', function (event) {
+      if (event.target.closest && event.target.closest('a')) setMenu(false);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape' || !isOpen()) return;
+      setMenu(false);
+      toggle.focus();
+    });
+
+    // Keep the keyboard inside the panel while it covers the page.
+    menu.addEventListener('keydown', function (event) {
+      if (event.key !== 'Tab' || !isOpen()) return;
+      var stops = [toggle].concat(Array.prototype.slice.call(menu.querySelectorAll('a[href]')));
+      var first = stops[0];
+      var last = stops[stops.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault(); last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault(); first.focus();
+      }
+    });
+
+    // The panel is a phone layout; a rotation or resize past the breakpoint
+    // must not leave it stranded open.
+    window.addEventListener('resize', function () {
+      if (isOpen() && window.innerWidth > 700) setMenu(false);
+    });
+  }
+
   /* --- Reveal on scroll --------------------------------------------------- */
   var revealables = document.querySelectorAll('[data-rv]');
 

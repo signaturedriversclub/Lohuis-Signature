@@ -159,15 +159,6 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
 }
 
 /* --- Small screens -------------------------------------------------------- */
-@media (max-width: 760px) {
-  /* The four nav items cannot fit on a phone, so the bar scrolls sideways.
-     Fade its right edge so it is obvious there is more to reach. */
-  nav[data-ls-nav] {
-    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 30px), transparent);
-    mask-image: linear-gradient(90deg, #000 calc(100% - 30px), transparent);
-  }
-}
-
 @media (max-width: 640px) {
   /* Keep the tallest hero sections from running past a phone screen. */
   .page > main > section:first-child { min-height: 88vh; }
@@ -471,5 +462,120 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
   .s64 > [class] {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE MENU
+   On phones the four navigation items cannot fit across the top, so they move
+   behind a menu button and open as a full-screen panel. Above 700px nothing
+   below changes anything — the ordinary navigation bar is used.
+   -------------------------------------------------------------------------- */
+
+.nav-toggle {
+  display: none;              /* shown only on small screens, below */
+  width: 44px;                /* a comfortable tap target */
+  height: 44px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.nav-toggle-bars {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  transition: background-color .2s ease;
+}
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  transition: transform .35s cubic-bezier(.16, .8, .3, 1);
+}
+.nav-toggle-bars::before { top: -7px; }
+.nav-toggle-bars::after  { top:  7px; }
+
+/* Open: the three bars become a cross. */
+[data-menu-open] .nav-toggle-bars { background: transparent; }
+[data-menu-open] .nav-toggle-bars::before { transform: translateY(7px)  rotate(45deg); }
+[data-menu-open] .nav-toggle-bars::after  { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 700px) {
+  /* Scoped to .js: with JavaScript off the button could never open the panel,
+     so the ordinary navigation bar is left in place instead. */
+  .js .nav-toggle { display: flex; position: relative; z-index: 2; }
+
+  /* Keep the logo and the button above the panel that slides in behind them. */
+  .page > header > div { position: relative; }
+  .site-logo { position: relative; z-index: 2; }
+
+  .js .page > header nav[data-ls-nav] {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: clamp(18px, 4vh, 34px);
+    margin: 0;
+    padding: clamp(96px, 16vh, 150px) clamp(24px, 8vw, 56px) clamp(40px, 8vh, 72px);
+    background: #0C0C0B;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;   /* don't drag the page along underneath */
+    opacity: 0;
+    visibility: hidden;        /* also takes the links out of the tab order */
+    transform: translateY(-10px);
+    transition: opacity .34s ease,
+                transform .44s cubic-bezier(.16, .8, .3, 1),
+                visibility .44s;
+  }
+
+  .js[data-menu-open] .page > header nav[data-ls-nav] {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  /* Hold the page still while the menu is over it. */
+  html[data-menu-open],
+  html[data-menu-open] body { overflow: hidden; }
+
+  /* Roomier type and tap targets than the desktop bar uses. */
+  .js .page > header nav[data-ls-nav] > a {
+    font-size: 15px;
+    letter-spacing: .2em;
+    padding: 12px 0;
+  }
+  .js .page > header nav[data-ls-nav] > a:last-child {
+    margin-top: clamp(10px, 2vh, 20px);
+    padding: 17px 30px;
+  }
+}
+
+/* A phone held sideways is short enough that the centred menu would be taller
+   than the screen — and a centred flex column that overflows gets clipped at
+   the top, out of reach. Start it from the top instead and let it scroll. */
+@media (max-width: 700px) and (max-height: 600px) {
+  .js .page > header nav[data-ls-nav] {
+    justify-content: flex-start;
+    padding-top: clamp(74px, 20vh, 110px);
+  }
+}
+
+/* The panel is a phone layout; never leave it open on a wider screen. */
+@media (min-width: 701px) {
+  .js[data-menu-open] .page > header nav[data-ls-nav] {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
   }
 }

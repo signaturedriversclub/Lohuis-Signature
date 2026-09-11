@@ -85,11 +85,21 @@ Two things worth knowing:
 
 - **The header and footer are repeated in every page file.** That is deliberate —
   it is what keeps the site free of any build step. But it does mean that
-  changing a navigation link means changing it in all fourteen files.
+  changing a navigation link means changing it in all fourteen files — and on
+  phones the same links are used by the menu, so there is nothing separate to
+  keep in step.
 - **`css/site.css` has two halves.** The top half is written by hand and is
   commented. The bottom half (`.s1`, `.s2`, …) was generated from the original
   design — one rule for each distinct style in the layout. Those are best left
   alone.
+
+### The menu on phones
+
+Below 700px wide the four navigation links move behind a menu button in the top
+right and open as a full-screen panel. Above that width the ordinary bar is
+used, exactly as before. It is the *same* four links in the page either way —
+the stylesheet simply presents them differently — so adding a link adds it to
+both.
 
 ### Previewing before you publish
 
