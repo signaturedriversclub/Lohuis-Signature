@@ -29,7 +29,14 @@ images/             Photographs
 images/brand/       Logo, the signature artwork, favicons
 images/clients/     Client logos
 .nojekyll           Tells GitHub Pages to publish every file untouched
+robots.txt          Lets search engines in, and points them at the sitemap
+sitemap.xml         The list of pages, for search engines
 ```
+
+Every page carries its own address (`https://www.lohuissignature.nl/…`) in a
+`canonical` tag, so search engines know which domain is the real one. If the
+primary domain ever changes, those tags, `robots.txt` and `sitemap.xml` are the
+three places to update.
 
 ---
 
@@ -48,11 +55,20 @@ Every link, image and stylesheet uses a **relative path**, so the site works
 unchanged at that temporary address and later at your own domain. Nothing needs
 editing when the domain is connected.
 
-### Connecting signaturedriversclub.nl
+### Connecting lohuissignature.nl and lohuissignature.com
 
 Not set up yet, by request. When you are ready it is two steps: add the domain
 under **Settings → Pages → Custom domain** (GitHub then creates a `CNAME` file
 here), and point the DNS records at GitHub from your Squarespace account.
+
+**GitHub Pages accepts only one custom domain.** So one of the two becomes the
+real address and the other must redirect to it, which is set up at the registrar
+rather than here. Pick one as the primary — usually the `.nl` for a Netherlands
+business — and have the `.com` forward to it.
+
+This matters beyond tidiness: if both domains serve the same pages directly,
+search engines see two copies of every page and split the site's standing
+between them.
 
 ---
 
@@ -116,10 +132,9 @@ WhatsApp button and the email addresses elsewhere on the site are unaffected.
 
 ## Details to confirm
 
-Three things were carried over from the design exactly as written. They may all
-be correct — but they are worth a look:
-
-- The footer and the enquiry form both use **info@lohuissignature.nl**.
-- Four links point to **www.signaturedriversclub.com** (`.com`), while the
-  domain being connected is **signaturedriversclub.nl** (`.nl`).
 - The footer reads **© 2026 Lohuis Signature**.
+
+Two things are settled and correct as they stand: the contact address
+**info@lohuissignature.nl** matches this site's own domain, and the seventeen
+**Signature Drivers Club** links point to `signaturedriversclub.nl`, which is
+the sibling house and a genuinely separate site.
