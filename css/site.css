@@ -155,7 +155,11 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 1.2s cubic-bezier(.16, .8, .3, 1),
-              transform 1.2s cubic-bezier(.16, .8, .3, 1);
+              transform 1.2s cubic-bezier(.16, .8, .3, 1),
+              /* so a hover border fades in rather than snapping; harmless on
+                 the elements that have no hover state of their own */
+              box-shadow .35s ease,
+              background-color .35s ease;
 }
 .js [data-rv][data-rv-on] { opacity: 1; transform: none; }
 
@@ -831,3 +835,27 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
 /* Two paragraphs in a row inside a policy section need a gap; the design only
    ever had one. */
 .s245 + .s245 { margin-top: 18px; }
+
+/* --------------------------------------------------------------------------
+   HERO INTRODUCTION
+   The design sets these paragraphs at 86% bone, which reads as slightly greyed
+   against the photograph behind them. Brought up to the full bone the headlines
+   already use, so the two belong together. One rule per page group — between
+   them they cover the opening paragraph of all fourteen pages.
+   -------------------------------------------------------------------------- */
+.s18,     /* homepage, 404 */
+.s98,     /* commissions */
+.s116,    /* chauffeur, concierge, fleet, journey, retainer, the house */
+.s218 {   /* enquiry form */
+  color: #F1EDE5;
+}
+
+/* --------------------------------------------------------------------------
+   COMMISSION ROWS AND CARDS — hover
+   The design flipped the whole panel to a different shade on hover, which
+   moves a lot of the page for a small signal. A narrow border says the same
+   thing more quietly. Drawn inside the element with an inset shadow rather
+   than a real border, so nothing shifts by a pixel when it appears.
+   -------------------------------------------------------------------------- */
+.hv4:hover { background: transparent;    box-shadow: inset 0 0 0 1px var(--accent); }
+.hv9:hover { background: var(--panel);   box-shadow: inset 0 0 0 1px var(--accent); }
