@@ -1011,3 +1011,26 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
 
   [data-menu-open] .tapbar { display: none; }
 }
+
+/* --------------------------------------------------------------------------
+   NAVIGATION BAR — vertical alignment
+   The plain links and the two buttons did not sit on the same line: the links
+   rode 3.5px high.
+
+   The cause is the hover underline each link carries. It is a block inside the
+   link — 6px of margin and a 1px rule, 7px in all — sitting below the words.
+   The bar centres each item's box, and that 7px hangs below the text, so
+   centring the box pushes the text up by half of it. The buttons carry no
+   underline, so their text centres honestly. Hence 3.5px, and hence only the
+   links being wrong.
+
+   Adding the same 7px back above the text re-centres it inside its own box,
+   and the underline travels down with it, keeping the gap the design drew.
+   Boxes are centred, so nothing else moves.
+
+   The bar only: below 901px these become a stacked panel with a padding rule
+   of its own, where there is no row to align to.
+   -------------------------------------------------------------------------- */
+@media (min-width: 901px) {
+  .page > header nav[data-ls-nav] > a.s5 { padding-top: 15px; }  /* 8px + 7px */
+}
