@@ -2,3 +2,6 @@
 ._*
 __MACOSX/
 Thumbs.db
+
+# Local tooling / analysis — must never be published (GitHub Pages serves everything in main)
+claude-seo/
