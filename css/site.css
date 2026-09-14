@@ -349,6 +349,7 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
 .s137{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(30px,4vw,64px);padding-top:clamp(40px,6vh,72px);border-top:1px solid var(--line)}
 .s138{margin:0 0 14px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:400;color:var(--accent)}
 .s139{margin:0;font-size:15px;line-height:1.85;color:var(--ink2)}
+.s154 .s139+.s139{margin-top:14px}
 .s140{position:relative;overflow:hidden;background:#0C0C0B;color:#F1EDE5;display:flex;align-items:flex-end;min-height:min(84vh,820px)}
 .s141{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 50%;animation:kbs 30s cubic-bezier(.25,.5,.2,1) both}
 .s142{position:absolute;inset:0;background:linear-gradient(96deg,rgba(10,10,9,.9) 0%,rgba(10,10,9,.62) 46%,rgba(10,10,9,.22) 100%)}
