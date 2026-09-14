@@ -40,6 +40,18 @@
       "description": "A private house for chauffeured movement, concierge arrangements and curated journeys. Based in Aalsmeer, minutes from Amsterdam Airport Schiphol, and working across the Netherlands and continental Europe.",
       "telephone": "+31297223448",
       "email": "info@lohuissignature.nl",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "enquiries",
+          "telephone": "+31297223448",
+          "email": "info@lohuissignature.nl",
+          "availableLanguage": [
+            "nl",
+            "en"
+          ]
+        }
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Twijnderlaan 19",
@@ -103,7 +115,6 @@
         "en"
       ],
       "sameAs": [
-        "https://www.signaturedriversclub.nl",
         "https://www.facebook.com/lohuistravels/",
         "https://www.instagram.com/lohuissignature/",
         "https://www.linkedin.com/company/lohuis-signature/",
@@ -117,6 +128,7 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
+              "@id": "https://www.lohuissignature.nl/chauffeur.html#service",
               "name": "Private chauffeur hire",
               "url": "https://www.lohuissignature.nl/chauffeur.html"
             }
@@ -125,6 +137,7 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
+              "@id": "https://www.lohuissignature.nl/concierge.html#service",
               "name": "Private concierge service",
               "url": "https://www.lohuissignature.nl/concierge.html"
             }
@@ -133,6 +146,7 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
+              "@id": "https://www.lohuissignature.nl/journey.html#service",
               "name": "Curated private road journeys",
               "url": "https://www.lohuissignature.nl/journey.html"
             }
@@ -141,11 +155,18 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
+              "@id": "https://www.lohuissignature.nl/retainer.html#service",
               "name": "Chauffeur and concierge retainer",
               "url": "https://www.lohuissignature.nl/retainer.html"
             }
           }
         ]
+      },
+      "subOrganization": {
+        "@type": "Organization",
+        "@id": "https://www.signaturedriversclub.nl/#organization",
+        "name": "Signature Drivers Club",
+        "url": "https://www.signaturedriversclub.nl/"
       }
     },
     {
@@ -180,6 +201,7 @@
     },
     {
       "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/retainer.html#service",
       "name": "Chauffeur and concierge retainer",
       "description": "A standing arrangement holding the same named chauffeur, vehicle and concierge against your diary for a season or a year.",
       "serviceType": "Chauffeur and concierge retainer",
