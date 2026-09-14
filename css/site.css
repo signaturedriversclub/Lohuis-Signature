@@ -337,6 +337,7 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
 .s247{grid-column:1/-1;margin:10px 0 0;font-size:15px;line-height:1.85;color:var(--ink2);max-width:62ch}
 .s248{margin-top:clamp(40px,5vh,62px)}
 .s249{margin:10px 0 0;font-size:15px;line-height:1.85;color:var(--ink2)}
+.s250{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;margin-bottom:clamp(16px,2vw,22px)}
 .s125{background:var(--panel);padding:clamp(30px,3.4vw,52px);display:flex;flex-direction:column;gap:16px}
 .s126{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
 .s127{font-family:var(--disp);font-weight:200;font-size:clamp(23px,2.4vw,34px);line-height:1.1;letter-spacing:-.018em;margin:0}
