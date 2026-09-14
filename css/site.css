@@ -343,7 +343,14 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
 .s248{margin-top:clamp(40px,5vh,62px)}
 .s249{margin:10px 0 0;font-size:15px;line-height:1.85;color:var(--ink2)}
 .s250{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;margin-bottom:clamp(16px,2vw,22px)}
-@media (min-width:780px){.s251{position:sticky;top:clamp(110px,11vh,140px)}}
+/* The whole left column is ~850px, taller than a laptop viewport, so sticking
+   it does nothing. Stretch it to the full grid area instead and stick only the
+   "Four routes" block (~415px), which comfortably fits and is the label for the
+   cards beside it. The opening statement scrolls past, as an intro should. */
+@media (min-width:780px){
+  .s251{align-self:stretch}
+  .s251 .s248{position:sticky;top:clamp(110px,11vh,140px)}
+}
 .s125{background:var(--panel);padding:clamp(30px,3.4vw,52px);display:flex;flex-direction:column;gap:16px}
 .s126{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
 .s127{font-family:var(--disp);font-weight:200;font-size:clamp(23px,2.4vw,34px);line-height:1.1;letter-spacing:-.018em;margin:0}
