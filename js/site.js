@@ -63,7 +63,11 @@
     // Keep the keyboard inside the panel while it covers the page.
     menu.addEventListener('keydown', function (event) {
       if (event.key !== 'Tab' || !isOpen()) return;
-      var stops = [toggle].concat(Array.prototype.slice.call(menu.querySelectorAll('a[href]')));
+      var stops = [toggle].concat(Array.prototype.slice.call(
+        // The submenu's own button is a tab stop as much as any link,
+        // and its links drop out of this list while it is closed.
+        menu.querySelectorAll('a[href], button')
+      ).filter(function (el) { return el.offsetParent !== null; }));
       var first = stops[0];
       var last = stops[stops.length - 1];
       if (event.shiftKey && document.activeElement === first) {
@@ -76,8 +80,35 @@
     // The panel is a phone layout; a rotation or resize past the breakpoint
     // must not leave it stranded open.
     window.addEventListener('resize', function () {
-      if (isOpen() && window.innerWidth > 700) setMenu(false);
+      if (isOpen() && window.innerWidth > 900) setMenu(false);
     });
+
+    /* --- The Commissions submenu ----------------------------------------
+       On the phone panel the arrow opens the four commissions in place. The
+       desktop version of the same markup is opened by the stylesheet on
+       hover and on focus, so there is nothing to do for it here. */
+    var subToggle = menu.querySelector('.nav-sub-toggle');
+    var subGroup  = menu.querySelector('[data-nav-group]');
+
+    if (subToggle && subGroup) {
+      var setSub = function (open) {
+        if (open) { subGroup.setAttribute('data-sub-open', ''); }
+        else { subGroup.removeAttribute('data-sub-open'); }
+        subToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        subToggle.setAttribute('aria-label',
+          open ? 'Hide the four commissions' : 'Show the four commissions');
+      };
+
+      subToggle.addEventListener('click', function () {
+        setSub(subToggle.getAttribute('aria-expanded') !== 'true');
+      });
+
+      // Closing the panel resets the submenu, so it is not found already open
+      // the next time the menu is raised.
+      toggle.addEventListener('click', function () {
+        if (!isOpen()) setSub(false);
+      });
+    }
   }
 
   /* --- Reveal on scroll --------------------------------------------------- */

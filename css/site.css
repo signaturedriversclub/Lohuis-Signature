@@ -618,6 +618,31 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
     transform: none;
   }
 
+  /* The panel was a solid slab over the page. Letting the page through puts
+     the menu on the page rather than in front of it — blurred and dimmed, so
+     the links stay the only sharp thing on screen.
+
+     Dimming with `brightness` rather than painting black keeps the layer thin.
+     Measured against the worst thing the panel can cover — the bone ground,
+     and the bright paving in the hero photographs — the pale links hold about
+     4.8:1, and about 5.7:1 over the ground itself. `brightness` is the dial if
+     this wants to be lighter: raising it lightens the panel and lowers
+     contrast, with the floor around .58.
+
+     The solid colour above stays as the fallback, so a browser without
+     backdrop filters gets a legible panel rather than a transparent one. */
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .js .page > header nav[data-ls-nav] {
+      background: rgba(12, 12, 11, .20);
+      -webkit-backdrop-filter: blur(14px) saturate(115%) brightness(.6);
+      backdrop-filter: blur(14px) saturate(115%) brightness(.6);
+    }
+    /* The submenu sits inside the panel, on the same glass — a second tint
+       would only muddy it. Its links take the same .86 as the desktop card. */
+    .nav-sub a { color: rgba(241, 237, 229, .92); }
+    .nav-sub a[aria-current="page"] { color: var(--on-dark); }
+  }
+
   /* Hold the page still while the menu is over it. */
   html[data-menu-open],
   html[data-menu-open] body { overflow: hidden; }
@@ -677,6 +702,170 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
     visibility: visible;
     transform: none;
   }
+}
+
+/* --------------------------------------------------------------------------
+   COMMISSIONS SUBMENU
+   One block of markup serves both presentations, exactly as the main
+   navigation does. Above 900px it is a panel that drops from the bar on
+   hover or on keyboard focus; below 900px the arrow button opens it in
+   place inside the full-screen menu.
+
+   With JavaScript off the desktop panel still works — it is pure CSS — and
+   the phone panel never opens at all, so neither does its submenu. The
+   "Commissions" link itself always goes to the page, on every screen.
+   -------------------------------------------------------------------------- */
+.nav-group { position: relative; flex-shrink: 0; }
+
+.nav-sub a {
+  display: block;
+  font-family: var(--ui);
+  white-space: nowrap;
+}
+
+/* The arrow. A chevron drawn from two borders, so there is no image to load.
+   Closed it points right; open it has turned a quarter-turn clockwise. */
+.nav-sub-arrow {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform .34s cubic-bezier(.16, .8, .3, 1);
+}
+[data-sub-open] .nav-sub-arrow { transform: rotate(45deg); }
+
+/* --- Above 900px: a panel dropping from the bar ---------------------------- */
+@media (min-width: 901px) {
+  /* The bar scrolls sideways on narrow screens, and an overflow container
+     would clip the panel. There is room to spare at this width, so the
+     scrolling is not needed here. */
+  .page > header nav[data-ls-nav] { overflow: visible; }
+
+  /* Block, not flex: a flex item is blockified, and the link would lose the
+     leading its inline-block box carries in the bar — leaving "Commissions"
+     sitting 3.5px above "Fleet" and "The House". */
+  .nav-group { display: block; }
+  .nav-sub-toggle { display: none; }
+
+  .nav-sub {
+    position: absolute;
+    top: 100%;
+    left: -26px;
+    /* Padding rather than offset, so the pointer can cross from the link to
+       the panel without passing over a gap that would close it. */
+    padding-top: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity .26s ease,
+                transform .34s cubic-bezier(.16, .8, .3, 1),
+                visibility .34s;
+  }
+  .nav-sub-inner {
+    background: #0C0C0B;
+    border: 1px solid rgba(241, 237, 229, .14);
+    padding: 10px 0;
+    min-width: 232px;
+  }
+  .nav-sub a {
+    padding: 11px 26px;
+    font-size: 11.5px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--on-dark2);
+    transition: color .3s ease, background-color .3s ease;
+  }
+  .nav-sub a:hover,
+  .nav-sub a:focus-visible,
+  .nav-sub a[aria-current="page"] { color: var(--on-dark); }
+
+  /* Smoked glass, on the same terms as the tap bar: the page is dimmed by the
+     filter rather than covered by paint, so its shapes and warmth still come
+     through and the black layer can stay thin.
+
+     The dimmed grey the links carry on the solid card does not survive that —
+     #A9A29A over the lightest thing the panel can cross reads about 2.7:1. So
+     on glass they take the pale ink at .86, which the hero paragraph already
+     uses, and the page they are on is marked by full strength instead. */
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .nav-sub-inner {
+      background: rgba(12, 12, 11, .20);
+      -webkit-backdrop-filter: blur(12px) saturate(115%) brightness(.6);
+      backdrop-filter: blur(12px) saturate(115%) brightness(.6);
+    }
+    .nav-sub a { color: rgba(241, 237, 229, .92); }
+    .nav-sub a:hover,
+    .nav-sub a:focus-visible,
+    .nav-sub a[aria-current="page"] { color: var(--on-dark); }
+  }
+
+  .nav-group:hover .nav-sub,
+  .nav-group:focus-within .nav-sub {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+}
+
+/* --- Below 900px: opened in place by the arrow ----------------------------- */
+@media (max-width: 900px) {
+  .nav-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+
+  /* The link and the arrow share a row; the arrow's tap target runs to the
+     right edge of the panel so it is hit without aiming. */
+  .nav-group > a {
+    font-size: 15px;
+    letter-spacing: .2em;
+    padding: 12px 0;
+  }
+  .nav-sub-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+    padding: 12px 0;
+    min-height: 44px;
+    color: inherit;
+  }
+
+  /* 0fr to 1fr animates to the content's own height, with no figure to keep
+     in step with the number of links. */
+  .nav-sub {
+    display: grid;
+    grid-template-rows: 0fr;
+    width: 100%;
+    transition: grid-template-rows .36s cubic-bezier(.16, .8, .3, 1);
+  }
+  [data-sub-open] .nav-sub { grid-template-rows: 1fr; }
+  [data-sub-open] .nav-sub-inner { visibility: visible; }
+  .nav-sub-inner {
+    overflow: hidden;
+    /* Closed, the links still have a box — hide them from the tab order too,
+       held back until the row has finished collapsing. */
+    visibility: hidden;
+    transition: visibility .36s;
+    padding-left: 18px;
+    border-left: 1px solid rgba(241, 237, 229, .16);
+    margin-left: 2px;
+  }
+  .nav-sub a {
+    padding: 11px 0;
+    font-size: 12.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--on-dark2);
+  }
+  .nav-sub a[aria-current="page"] { color: var(--on-dark); }
 }
 
 /* --------------------------------------------------------------------------
@@ -1030,5 +1219,9 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
    of its own, where there is no row to align to.
    -------------------------------------------------------------------------- */
 @media (min-width: 901px) {
-  .page > header nav[data-ls-nav] > a.s5 { padding-top: 15px; }  /* 8px + 7px */
+  .page > header nav[data-ls-nav] > a.s5,
+  /* "Commissions" sits inside .nav-group now, so it no longer matches
+     the rule above on its own — but it carries the same underline and
+     wants the same correction. */
+  .page > header nav[data-ls-nav] .nav-group > a.s5 { padding-top: 15px; }  /* 8px + 7px */
 }

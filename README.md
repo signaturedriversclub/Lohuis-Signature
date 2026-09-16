@@ -154,6 +154,76 @@ they are held to a common width so they stack as a pair, which is what the
 labels, so both take it rather than only the shorter one. Rewording either
 button means checking that value still clears the longer label.
 
+### The Commissions submenu
+
+"Commissions" carries the four commissions beneath it. One block of markup in
+each of the fourteen files serves both presentations, the way the main
+navigation does:
+
+- **Above 900px** the stylesheet drops a panel from the bar on hover, and on
+  keyboard focus. No JavaScript is involved, so it works with scripting off.
+  The panel's `padding-top` is the bridge the pointer crosses between the link
+  and the card — take it away and the panel closes in the gap.
+- **Below 900px** an arrow sits at the right of "Commissions" inside the
+  full-screen panel. Pressing it turns the arrow a quarter-turn clockwise and
+  opens the four in place. `grid-template-rows: 0fr → 1fr` animates to the
+  content's own height, so adding a fifth commission needs no number changed.
+
+Two things to know before editing it:
+
+- **`nav[data-ls-nav]` must not be an overflow container above 900px.** The bar
+  scrolls sideways on narrow screens, and an overflow container would clip the
+  panel. There is room to spare at that width, so the scrolling is turned off
+  there.
+- **"Commissions" no longer matches `nav > a.s5`.** It sits inside
+  `.nav-group`, so the 7px optical correction described further down has a
+  second selector written for it. A new rule aimed at the bar's links needs
+  both.
+
+Each commission page marks its own entry with `aria-current="page"`, which is
+what lights it in the list.
+
+**Both panels are smoked glass**, on the same terms as the tap bar at the foot
+of the page: the page behind is dimmed by `brightness` in the backdrop filter
+rather than covered with paint, so its shapes and warmth still come through and
+the black layer stays thin.
+
+Three numbers set how much shows through, and they are the ones to change:
+
+```
+background: rgba(12, 12, 11, .20)      how much black is painted over the page
+brightness(.6)                         how far the page itself is dimmed
+blur(12px) / blur(14px)                how far the page is smeared
+```
+
+`blur` is worth knowing about separately: it changes how *recognisable* the page
+behind is without changing how *light* it is, so lowering it makes the panel
+read as more see-through at no cost to legibility. The other two both trade
+legibility for lightness.
+
+**Where these currently stand.** Against the lightest thing a panel can cross —
+the bone ground, `#F1EDE5` — the composited backdrop is about `#767570`, and:
+
+| | contrast |
+|---|---|
+| Main links, `#F1EDE5` | ≈ 4.0:1 |
+| Submenu links, the same ink at `.92` | ≈ 3.6:1 |
+
+Both clear the 3:1 the accessibility guidelines ask of large text and **neither
+clears the 4.5:1 asked of type this size.** Over every dark backdrop — the
+heroes, the footer — they are far above it; it is only the cream sections where
+they fall short. This was a deliberate choice for a lighter panel, made with the
+numbers in front of us, not an oversight.
+
+To put it back inside 4.5:1, the ceiling is roughly `rgba(12,12,11,.25)` with
+`brightness(.55)`, which composites to about `#6B6B6B`. There is no setting
+lighter than that which keeps pale type over a cream page compliant — the only
+way to have both is to invert the panel: a pale frost with dark ink, which
+reads as far lighter again and measures better on every backdrop.
+
+The solid colours stay in place as the fallback for a browser without backdrop
+filters.
+
 ### What search engines and AI assistants read
 
 Every content page carries a block of **structured data** — a `<script
