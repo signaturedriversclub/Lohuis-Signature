@@ -129,6 +129,101 @@ Two things worth knowing:
   design — one rule for each distinct style in the layout. Those are best left
   alone.
 
+### The strip across the foot of the hero
+
+The homepage hero ends in a row reading *Chauffeur · Concierge · Journeys ·
+Retained*. It is **words, not controls** — a caption under the hero, not a
+second navigation. Two changes were tried here and both were taken back out on
+purpose:
+
+- **Making them links.** Reverted. Leave them as `<div>`s, and keep anything
+  that answers a pointer — a hover state, a border, a hand cursor — off them.
+- **Renaming them** to *The Chauffeur, The Concierge, The Journey, The
+  Retainer*, to match the commission pages. Reverted: four short labels sit
+  better in the grid than the same article repeated four times. Worth knowing
+  that this row is therefore the one place on the site using *Journeys* and
+  *Retained*; every other surface — navigation, cards, footer, structured data
+  — uses the long singular names. That is a deliberate difference of register,
+  not a mistake to tidy up.
+
+**Also known, and accepted:** the strip sits where the hero's 96deg scrim has
+faded to .2, over bright paving. Measured there, the ink at .72 opacity reads
+**1.86:1**, and **1.24:1** against a specular highlight in the stones, against
+the 4.5:1 type this size would normally want — the right-hand end of the row
+does disappear on a bright screen. A backing band at .55 with full-strength ink
+was tried and removed; the row reads quieter without it.
+
+If it is ever revisited, the option that changes nothing about the row itself is
+to carry the hero's own scrim (`.s10`) further right and let the photograph
+absorb the difference.
+
+### The wordmark's minimum size
+
+`.s3` sizes the header lockup. It was `clamp(88px, 12vw, 168px)`; the floor is
+now **130px**, set in the last block of `css/site.css`.
+
+At 88px — every viewport under 733px, so every telephone — the "SIGNATURE" line
+beneath the script has a cap height of about three pixels and renders as grey
+mush. On a standard-density screen the "I" disappears. Rendered from the source
+mask at the sizes the header actually uses:
+
+```
+ 88px   illegible; letters merged, the I gone
+110px   borderline; readable, letters beginning to run together
+130px   legible; every letter distinct          <- the floor
+168px   clean
+```
+
+**Drawing the mark as SVG would not fix this.** It is worth doing for other
+reasons — crisp edges at every size, and it would retire about 140KB of PNG
+mask — but three-pixel letterforms with sub-pixel strokes are unreadable
+however they are drawn. This was a sizing problem, not a format one.
+
+The cost is the header's spare room: see the note under *The menu on phones and
+tablets* for the current figure at 901px.
+
+### The type scale
+
+The last block in `css/site.css` is **TYPE SCALE — the functional end**. It is
+worth knowing why it exists and how to work with it.
+
+The display end of this site was always confident — headlines run to 116px. The
+functional end was not. Before that block:
+
+| | was | now |
+|---|---|---|
+| Footer column headings | 9px | 10.5px |
+| Eyebrows, and every form label | 9.5px | 10.5px / **12px** |
+| "Read the commission", Privacy headings | 10px | 11.5px |
+| **Every button**, the navigation, the tap bar | 10.5px | **12px** (nav 11.5px) |
+| Placeholders | browser default, 3.95:1 | `--muted`, **5.70:1** |
+
+So the type a visitor had to read *in order to act* was the smallest type on
+the page, uppercase and letterspaced at .28em. For a register of boards,
+delegations and private clients — a good share of them reading on a telephone —
+that was the wrong way round.
+
+**How the block is built.** It sits at the very end of the file and overrides
+by *source order*, not by specificity: every selector in it is a bare class,
+exactly as in the generated half. That means two things. Deleting the block
+restores the original scale exactly, and nothing in the generated `.sNN` rules
+had to be touched.
+
+**Two things to watch.**
+
+- **The navigation is held back on purpose.** At 901px — the narrowest width
+  that still shows the bar rather than the menu button — there were 113px
+  between the logo and the first item. 11.5px spends 40 of them and leaves 73.
+  Raising it further starts eating the margin the bar needs; measure before
+  you do.
+- **The floor is now 10.5px, and everything at that size is decorative** — the
+  hero eyebrow, "Place a commission", "Founder". If you add a *link* or a
+  *button* at the old sizes it will look right next to nothing else. Put it in
+  this block instead.
+
+Body copy was left alone at 15–16px. Raising it to 17px is a reasonable next
+step, but it re-flows every paragraph on the site, so it wants its own pass.
+
 ### The menu on phones and tablets
 
 Below 900px wide the five navigation items move behind a menu button in the top
@@ -136,11 +231,20 @@ right and open as a full-screen panel. Above that width the ordinary bar is
 used, exactly as before. They are the *same* five items in the page either way —
 the stylesheet simply presents them differently — so adding one adds it to both.
 
-900px is where the bar runs out of room rather than a round number. Measured on
-the homepage, the space left between the logo and the far edge is 13px at 768px
-wide, 57px at 834px and 102px at 900px. So a tablet held upright folds the menu
-away; a tablet turned on its side (1024px, with 185px to spare) keeps the full
-bar. Raising the value folds the landscape tablet too.
+900px is where the bar runs out of room rather than a round number. It was
+measured when the original design was set, with 102px of clear space left at
+900px.
+
+**Two later changes have spent most of that margin, and it is now worth
+knowing the current figure before touching either.** The navigation went from
+10.5px to 11.5px (see *The type scale*), and the wordmark gained a 130px floor
+(see *The wordmark's minimum size*). Re-measured on the homepage at 901px, the
+space between the mark and the first navigation item is now **51px**.
+
+That still fits, and nothing overflows — but the bar is close to its limit.
+Anything that widens the mark, the navigation, or the two buttons needs
+re-measuring at 901px first, and if it goes negative the answer is to raise the
+breakpoint rather than to shrink the type back down.
 
 **Four media queries share that number** — the menu block, the short-screen
 block for a handset held sideways, the `min-width` block that forces the panel
@@ -252,6 +356,52 @@ disagree, and the machine-readable half is the one that gets believed.
 To check a change, paste the page's source into
 [validator.schema.org](https://validator.schema.org/). All thirteen pages
 currently report zero errors and zero warnings.
+
+### The quote band
+
+Two of the commission pages carry a **quote band**: a full-bleed dark section
+holding a label and one line of italic display type, and nothing else.
+
+It exists because those pages run for screens at a time on the bone ground with
+nothing for the eye to rest on. Measured at 1440px, between the foot of the hero
+and the foot of the page:
+
+| | unbroken |
+|---|---|
+| Chauffeur | **2,546px** — near three screens |
+| Retainer | 1,664px |
+| Concierge | 1,166px |
+
+The raw numbers overstate it for two of the three. The Retainer's run is a 3x3
+grid of numbered tiles and the Concierge's is a four-column band — both already
+give the eye structure. **Only the Chauffeur page is genuinely a wall of
+prose**, which is why it is the one that needed breaking.
+
+The Concierge has one anyway, for a different reason: the best piece of
+evidence on the site — a client who telephoned from the gate an hour before
+boarding — was buried in 13px type in the last of four columns. The band lifts
+the punchline out and leaves the full story where it was.
+
+Two things worth knowing:
+
+- **It is deliberately not the homepage's commission band** (`.s47`), which is a
+  photograph with a line laid over it. These pages argue rather than display,
+  and a band made only of type says so. It also needs no photograph — which is
+  the thing these pages do not have.
+- **Every line in a band is already in the page's prose.** A pull-quote repeats
+  what the body said; that is what a pull-quote is for. If you rewrite a
+  paragraph, check whether the band above it still quotes something that exists.
+
+Current lines, both lifted verbatim:
+
+```
+chauffeur.html   Commission No. I                     In the background unless you want otherwise.
+concierge.html   Commission No. II - from the gate    It was arranged in thirty minutes.
+```
+
+The Retainer has no band. Its opening line — *"The same face, the same car,
+week after week"* — already does that job, and a second statement so close to
+the first would only compete with it.
 
 ### Photographs and their resized copies
 
@@ -374,6 +524,54 @@ sees it.
 
 - The footer reads **© 2026 Lohuis Signature**.
 
+### Content Credentials in eight image files — outstanding
+
+Eight files carry an embedded **C2PA manifest** naming Claude in their
+provenance chain. All eight are published: five are photographs the pages
+reference, and three are the brand artwork the stylesheet loads on every page.
+
+```
+images/brand/sig-mask.png              the wordmark, drawn in the header and footer
+images/brand/sig-script-mask.png       the script, drawn on every hero
+images/brand/logo-source.png           cited as the organisation logo in the structured data
+images/charlie-detailing.webp          the-house.html
+images/fleet-eclass-interior.avif      fleet.html
+images/fleet-luggage.avif              fleet.html
+images/fleet-minicoach-exterior.webp   fleet.html
+images/fleet-sprinter-interior.webp    fleet.html
+```
+
+**Be precise about what they say.** The assertion is
+*"Claude provided this file at the request of a user and may have created or
+modified the file contents"*, with `origin-confidence: unknown` and an action of
+`c2pa.opened` plus `com.anthropic.claude.provided`. That is a **handled-by**
+record, not a generated-by one — there is no `trainedAlgorithmicMedia` claim in
+any of them. It is what gets written when a file passes through an assistant,
+most likely during an earlier conversion.
+
+**Why it is worth clearing anyway.** The manifest is publicly inspectable by
+anyone with a Content Credentials tool, and three of the eight are the logo.
+On a site that keeps a written rights record for every photograph, a
+machine-readable note saying an AI touched the wordmark is an odd thing to
+leave in.
+
+**It is not a weight problem.** Measured on `charlie-detailing.webp`, the
+manifest costs a few kilobytes; re-encoding at a quality that preserved the
+image actually produced a slightly *larger* file. This is about the record.
+
+**The fix** is a re-encode, which drops the metadata — `cwebp` and `sips` both
+write nothing of their own. Decode to PNG, encode back at high quality, check
+with `grep -la c2pa <file>`. The resized copies in `images/r/` are already
+clean, because they were generated rather than passed through; it is only the
+originals in `images/` and `images/brand/` that carry it.
+
+Note that `images/brand/*.png` are masks, not photographs — they must stay PNG
+with their alpha channel intact, so re-encode them with a PNG tool rather than
+`cwebp`.
+
+One more, unused and so not urgent: `images/Concierge pointing.jpg` carries the
+same manifest. It is the butler stock photograph, not referenced by any page.
+
 ### The telephone number, off this site
 
 The site uses **+31 297 223 448** — in the footer, the new header link, the tap
@@ -396,11 +594,18 @@ All confirmed and on record:
   Licence held. Keep the licence receipt somewhere you can find it; stock
   libraries audit, and the file itself no longer carries the proof.
 - `images/spirit-of-ecstasy.webp` — used with the photographer's agreement.
+- `images/chauffeur-hero.webp` — the Rolls-Royce Ghost under the magnolia, used
+  as the Chauffeur banner. Photographed by **Carphotographs Overdiep**. Used
+  with the photographer's agreement, and with their agreement that the
+  watermark along the foot of the frame be cropped away — which is what the
+  2,845px height is: the original is 2,925px and the mark sat in the last
+  eighty. Keep a note of that conversation; the file no longer evidences it.
+  The camera original is `images/IMG_1607.jpeg`, which is git-ignored.
 - The six client logos on The House — shown with the clients' permission. The
   FAQ says discretion holds "unless a client has specifically agreed
   otherwise", which is what those logos rely on.
 
-**One entry is not confirmed and needs to be.**
+**Two entries are not confirmed and need to be.**
 
 - `images/journey-strasbourg.webp` — Château de Pourtalès, used on the Journey
   page for *Amsterdam to Rome*. It replaced a photograph of our own, and its
@@ -413,6 +618,23 @@ All confirmed and on record:
   conversation rather than a problem — but until someone has had it, the entry
   stays here rather than in the list above. The better answer is to photograph
   our own car on that gravel and retire the question entirely.
+
+- `images/concierge-hero.webp` — a card passed across a counter, used as the
+  Concierge banner and as the social preview for the Concierge, Contact and
+  Enquire pages. A stock photograph, supplied without a library, an ID or a
+  photographer. `home-concierge.jpg` two entries above shows the standard: the
+  library, the image number and the photographer's name, so the licence can be
+  produced if anyone asks. This one needs the same before it is safe.
+
+  **It is also only 600x400.** The banner runs full-bleed, so on a 1440px screen
+  it is scaled up about two and a half times, and about five on a high-density
+  screen. It survives because the photograph is shallow-focus almost everywhere
+  and the softness reads as depth of field rather than as a small file — but it
+  is a compromise, and the licensed full-resolution original should replace it.
+
+  The better answer remains a photograph of our own: one of our written
+  proposals on our own letterhead, on a dark table, in raking window light. It
+  needs no licence and no entry here at all.
 
 Camera, editing and copyright data has been stripped from every photograph.
 That removes serial numbers and location traces that have no business on a

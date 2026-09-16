@@ -5,3 +5,10 @@ Thumbs.db
 
 # Local tooling / analysis — must never be published (GitHub Pages serves everything in main)
 claude-seo/
+
+# Camera originals. GitHub Pages serves everything in main, and these carry the
+# EXIF the published copies do not — GPS coordinates and the device model. Keep
+# them here to work from; the WebP files in images/ and images/r/ are what ships.
+images/*.JPG
+images/*.HEIC
+images/IMG_*
