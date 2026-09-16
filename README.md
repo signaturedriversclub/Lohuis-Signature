@@ -400,6 +400,20 @@ All confirmed and on record:
   FAQ says discretion holds "unless a client has specifically agreed
   otherwise", which is what those logos rely on.
 
+**One entry is not confirmed and needs to be.**
+
+- `images/journey-strasbourg.webp` — Château de Pourtalès, used on the Journey
+  page for *Amsterdam to Rome*. It replaced a photograph of our own, and its
+  provenance has not been established. It was not taken by the house. Framing,
+  light and dimensions are consistent with a freely-licensed encyclopedia
+  photograph, which would carry an attribution condition, and it may instead be
+  the property's own press image, which would need their permission.
+
+  Pourtalès is a client and is on the logo wall, so this is a short
+  conversation rather than a problem — but until someone has had it, the entry
+  stays here rather than in the list above. The better answer is to photograph
+  our own car on that gravel and retire the question entirely.
+
 Camera, editing and copyright data has been stripped from every photograph.
 That removes serial numbers and location traces that have no business on a
 public site, and trims the download — but it also means the files themselves no
