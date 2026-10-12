@@ -25,7 +25,7 @@ terms.html          Terms
 
 css/site.css        All styling
 js/site.js          All behaviour (animation, galleries, the form)
-fonts/              The two typefaces, served from here rather than Google
+fonts/              Montserrat and Bodoni Moda, served from here rather than Google
 images/             Photographs
 images/r/           Resized copies of those photographs — see below
 images/brand/       Logo, the signature artwork, favicons
@@ -114,8 +114,10 @@ every page and split the site's standing between them.
 change the words between the tags, and save.
 
 **Colours and fonts** are set once at the top of `css/site.css`, under
-`:root`. Changing `--accent` there, for example, changes every bronze detail on
-every page.
+`:root`. They follow the brand guidelines (edition 01): ink `#141311`, bone
+`#F2EDE4`, stone `#DCD5C8`, smoke `#6B655B`, set in Montserrat, with Bodoni Moda
+Italic for quotes and numerals only. There is no accent colour; `--accent` is
+smoke, kept as a name so the old rules still resolve.
 
 Two things worth knowing:
 
@@ -531,9 +533,8 @@ provenance chain. All eight are published: five are photographs the pages
 reference, and three are the brand artwork the stylesheet loads on every page.
 
 ```
-images/brand/sig-mask.png              the wordmark, drawn in the header and footer
-images/brand/sig-script-mask.png       the script, drawn on every hero
-images/brand/logo-source.png           cited as the organisation logo in the structured data
+images/brand/lohuis-signature-logo-ink.svg   the signature, drawn (as a mask) in the header, footer and hero watermarks
+images/brand/logo-512.png                    cited as the organisation logo in the structured data
 images/charlie-detailing.webp          the-house.html
 images/fleet-eclass-interior.avif      fleet.html
 images/fleet-luggage.avif              fleet.html
