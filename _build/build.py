@@ -34,6 +34,20 @@ LANGS = {
     "nl": {"dir": "nl/", "lang": "nl", "locale": "nl_NL", "root": "../"},
 }
 
+# Dutch pages get Dutch addresses. Chosen before /nl/ was ever published: once a
+# URL is indexed, changing it costs a redirect stub, which is exactly what we
+# refused to do to the English pages. Anything not listed keeps its own name
+# because the word is the same in both languages (chauffeur, concierge, ...).
+SLUGS = {
+    "en": {},
+    "nl": {"commissions": "missies", "journey": "reis", "fleet": "wagenpark",
+           "the-house": "het-huis", "enquire": "aanvragen", "faq": "vragen"},
+}
+
+
+def slug_for(lang, page):
+    return SLUGS.get(lang, {}).get(page, page)
+
 
 def slurp(*parts):
     with open(os.path.join(*parts), encoding="utf-8") as fh:
@@ -48,13 +62,13 @@ def pages_for(lang):
     return [s for s in PAGES if exists(lang, s)]
 
 
-def url_for(lang, slug):
+def url_for(lang, page):
     d = LANGS[lang]["dir"]
-    return BASE + d if slug == "index" else BASE + d + slug + ".html"
+    return BASE + d if page == "index" else BASE + d + slug_for(lang, page) + ".html"
 
 
-def out_path(lang, slug):
-    return os.path.join(ROOT, LANGS[lang]["dir"], slug + ".html")
+def out_path(lang, page):
+    return os.path.join(ROOT, LANGS[lang]["dir"], slug_for(lang, page) + ".html")
 
 
 def hreflang_block(slug):
@@ -88,6 +102,8 @@ def render(lang, slug, layout, shared, strings):
 
     for key, val in strings.items():
         out = out.replace("{{S:%s}}" % key, val)
+    for page in PAGES:
+        out = out.replace("{{U:%s}}" % page, slug_for(lang, page) + ".html")
 
     active = {meta.get("section"), meta.get("child")} - {None}
     for name in SECTIONS + CHILDREN:

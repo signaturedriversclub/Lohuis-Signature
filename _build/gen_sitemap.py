@@ -19,6 +19,13 @@ BASE = "https://www.lohuissignature.nl/"
 PAGES = ["index", "commissions", "chauffeur", "concierge", "journey", "retainer",
          "fleet", "the-house", "contact", "enquire", "faq", "privacy", "terms"]
 LANGS = {"en": "", "nl": "nl/"}
+SLUGS = {"en": {}, "nl": {"commissions": "missies", "journey": "reis",
+                          "fleet": "wagenpark", "the-house": "het-huis",
+                          "enquire": "aanvragen", "faq": "vragen"}}
+
+
+def slug_for(lang, page):
+    return SLUGS.get(lang, {}).get(page, page)
 
 
 def have(lang, slug):
@@ -51,7 +58,7 @@ def git_date(paths):
 def lastmod(lang, slug):
     src = [os.path.join(SRC, "pages", lang, slug + ext)
            for ext in (".main.html", ".json", ".schema.jsonld")]
-    page = os.path.join(ROOT, LANGS[lang], slug + ".html")
+    page = os.path.join(ROOT, LANGS[lang], slug_for(lang, slug) + ".html")
     return (git_date(src) or git_date([page])
             or datetime.date.today().isoformat())
 
@@ -64,7 +71,7 @@ def build():
                 continue
             meta = json.load(open(os.path.join(SRC, "pages", lang, slug + ".json"),
                                   encoding="utf-8"))
-            loc = BASE + d if slug == "index" else BASE + d + slug + ".html"
+            loc = BASE + d if slug == "index" else BASE + d + slug_for(lang, slug) + ".html"
             rows.append("  <url><loc>%s</loc><lastmod>%s</lastmod><priority>%s</priority></url>"
                         % (loc, lastmod(lang, slug), meta["priority"]))
     return HEADER + "\n".join(rows) + "\n</urlset>\n"
