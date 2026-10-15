@@ -12,3 +12,8 @@ claude-seo/
 images/*.JPG
 images/*.HEIC
 images/IMG_*
+
+# Draft legal text awaiting review. Deliberately not committed: GitHub Pages
+# serves everything in the repository, and a publicly reachable draft of terms
+# invites argument about which version was "made available" to a client.
+legal-drafts/
