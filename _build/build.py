@@ -116,6 +116,8 @@ def lang_switch(lang, page, strings):
     other = "nl" if lang == "en" else "en"
     target = page if exists(other, page) else "index"
     href = rel_url(lang, other, target)
+    if page == "404":                      # absolute, like everything else here
+        href = "/" + LANGS[other]["dir"]
     link = ('<a href="%s" class="s258" hreflang="%s" lang="%s" aria-label="%s">%s</a>'
             % (href, other, other, label, other.upper()))
     here = '<span class="s259" aria-current="true">%s</span>' % lang.upper()
@@ -131,16 +133,33 @@ def render(lang, slug, layout, shared, strings):
     nodes = slurp(SRC, "pages", lang, slug + ".schema.jsonld")
     graph = shared + (",\n" + nodes if nodes.strip() else "")
 
+    # 404.html is served by GitHub Pages at whatever URL was missing, so every
+    # path in it must be root-absolute, and it must not claim a canonical, a
+    # set of alternates, or structured data for an address that does not exist.
+    is404 = slug == "404"
+
+    schema_block = ""
+    if not is404:
+        schema_block = ('<script type="application/ld+json">\n{\n'
+                        '  "@context": "https://schema.org",\n'
+                        '  "@graph": [\n' + graph + '\n  ]\n}\n</script>\n')
+    canon = "" if is404 else ('<link rel="canonical" href="%s">\n%s\n'
+                              % (url_for(lang, slug), hreflang_block(slug)))
+    ogurl = "" if is404 else ('<meta property="og:url" content="%s">\n'
+                              % url_for(lang, slug))
+    robots = '<meta name="robots" content="noindex, follow">\n' if is404 else ""
+
     out = layout
-    out = out.replace("{{SCHEMA}}", graph)
+    out = out.replace("{{SCHEMA_BLOCK}}", schema_block)
+    out = out.replace("{{CANON}}", canon)
+    out = out.replace("{{OGURL}}", ogurl)
+    out = out.replace("{{ROBOTS}}", robots)
     out = out.replace("{{MAIN}}", main)
-    out = out.replace("{{HREFLANG}}", hreflang_block(slug))
     out = out.replace("{{TITLE}}", meta["title"])
     out = out.replace("{{DESCRIPTION}}", meta["description"])
-    out = out.replace("{{CANONICAL}}", url_for(lang, slug))
     out = out.replace("{{LANG}}", cfg["lang"])
     out = out.replace("{{LOCALE}}", cfg["locale"])
-    out = out.replace("{{ROOT}}", cfg["root"])
+    out = out.replace("{{ROOT}}", "/" if is404 else cfg["root"])
 
     for key, val in strings.items():
         out = out.replace("{{S:%s}}" % key, val)
@@ -155,7 +174,8 @@ def render(lang, slug, layout, shared, strings):
     out = out.replace("{{I18N}}", "<script>window.LS_I18N=%s;</script>\n"
                       % json.dumps(js, ensure_ascii=False, sort_keys=True) if js else "")
     for page in PAGES:
-        out = out.replace("{{U:%s}}" % page, slug_for(lang, page) + ".html")
+        target = slug_for(lang, page) + ".html"
+        out = out.replace("{{U:%s}}" % page, "/" + target if is404 else target)
 
     active = {meta.get("section"), meta.get("child")} - {None}
     for name in SECTIONS + CHILDREN:
@@ -190,6 +210,11 @@ def main():
         for slug in pages_for(lang):
             targets.append((out_path(lang, slug),
                             render(lang, slug, layout, shared, strings)))
+    # English only: GitHub Pages serves exactly one 404 document.
+    en_strings = json.loads(slurp(SRC, "chrome", "en.json"))
+    targets.append((os.path.join(ROOT, "404.html"),
+                    render("en", "404", layout, shared, en_strings)))
+
     for slug, spec in sorted(stubs.items()):
         targets.append((os.path.join(ROOT, slug + ".html"),
                         render_stub(spec, templates)))
