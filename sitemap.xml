@@ -4,6 +4,8 @@
      about.html, schiphol-chauffeur.html and the rest) each carry a canonical
      tag pointing at the real page, so listing them would ask search engines to
      index pages that have already told them not to. They are left out.
+     Dutch pages are listed alongside the English ones; each page's head
+     carries the hreflang pair.
      lastmod is the last commit that changed that page's source. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.lohuissignature.nl/</loc><lastmod>2026-10-15</lastmod><priority>1.0</priority></url>
@@ -19,4 +21,5 @@
   <url><loc>https://www.lohuissignature.nl/faq.html</loc><lastmod>2026-10-15</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.lohuissignature.nl/privacy.html</loc><lastmod>2026-10-15</lastmod><priority>0.3</priority></url>
   <url><loc>https://www.lohuissignature.nl/terms.html</loc><lastmod>2026-10-15</lastmod><priority>0.3</priority></url>
+  <url><loc>https://www.lohuissignature.nl/nl/chauffeur.html</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
 </urlset>

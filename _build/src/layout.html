@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{LANG}}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{TITLE}}</title>
 <meta name="description" content="{{DESCRIPTION}}">
 <link rel="canonical" href="{{CANONICAL}}">
-<link rel="alternate" hreflang="en" href="{{CANONICAL}}">
-<link rel="alternate" hreflang="x-default" href="{{CANONICAL}}">
+{{HREFLANG}}
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{CANONICAL}}">
 <meta property="og:site_name" content="Lohuis Signature">
 <meta property="og:title" content="{{TITLE}}">
 <meta property="og:description" content="{{DESCRIPTION}}">
-<meta property="og:locale" content="en_GB">
+<meta property="og:locale" content="{{LOCALE}}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#141311">
-<link rel="preload" href="fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site.css">
+<link rel="preload" href="{{ROOT}}fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ROOT}}css/site.css">
 <script>document.documentElement.className+=" js";</script>
 <script type="application/ld+json">
 {
@@ -38,29 +37,29 @@
 <meta name="twitter:image" content="https://www.lohuissignature.nl/images/og-image.jpg">
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">{{S:skip}}</a>
 <div class="page">
   <header class="s1">
     <div class="s2">
-      <a href="index.html"  aria-label="Lohuis Signature — home" class="s3 site-logo"></a>
-      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
+      <a href="index.html"  aria-label="{{S:aria.home}}" class="s3 site-logo"></a>
+      <button class="nav-toggle" type="button" aria-label="{{S:aria.menu}}" aria-expanded="false" aria-controls="site-menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
       <nav data-ls-nav="1" id="site-menu" class="s4">
         <div class="nav-group" data-nav-group>
-          <a href="commissions.html"{{AC:commissions}} class="s5">Commissions<span class="{{SP:commissions}}"></span></a>
-          <button class="nav-sub-toggle" type="button" aria-expanded="false" aria-controls="sub-commissions" aria-label="Show the four commissions"><span class="nav-sub-arrow" aria-hidden="true"></span></button>
+          <a href="commissions.html"{{AC:commissions}} class="s5">{{S:name.commissions}}<span class="{{SP:commissions}}"></span></a>
+          <button class="nav-sub-toggle" type="button" aria-expanded="false" aria-controls="sub-commissions" aria-label="{{S:aria.submenu}}"><span class="nav-sub-arrow" aria-hidden="true"></span></button>
           <div class="nav-sub" id="sub-commissions">
             <div class="nav-sub-inner">
-            <a href="chauffeur.html"{{AC:chauffeur}}>The Chauffeur</a>
-            <a href="concierge.html"{{AC:concierge}}>The Concierge</a>
-            <a href="journey.html"{{AC:journey}}>The Journey</a>
-            <a href="retainer.html"{{AC:retainer}}>The Retainer</a>
+            <a href="chauffeur.html"{{AC:chauffeur}}>{{S:name.chauffeur}}</a>
+            <a href="concierge.html"{{AC:concierge}}>{{S:name.concierge}}</a>
+            <a href="journey.html"{{AC:journey}}>{{S:name.journey}}</a>
+            <a href="retainer.html"{{AC:retainer}}>{{S:name.retainer}}</a>
             </div>
           </div>
         </div>
-        <a href="fleet.html"{{AC:fleet}} class="s5">Fleet<span class="{{SP:fleet}}"></span></a>
-        <a href="the-house.html"{{AC:the-house}} class="s5">The House<span class="{{SP:the-house}}"></span></a>
-        <a href="tel:+31297223448" class="s7 nav-call">Call us</a>
-        <a href="contact.html" class="s7 hv1">Request contact</a>
+        <a href="fleet.html"{{AC:fleet}} class="s5">{{S:nav.fleet}}<span class="{{SP:fleet}}"></span></a>
+        <a href="the-house.html"{{AC:the-house}} class="s5">{{S:nav.house}}<span class="{{SP:the-house}}"></span></a>
+        <a href="tel:+31297223448" class="s7 nav-call">{{S:nav.call}}</a>
+        <a href="contact.html" class="s7 hv1">{{S:nav.contact}}</a>
       </nav>
     </div>
   </header>
@@ -68,14 +67,14 @@
   <section class="s70">
     <div class="s71">
       <div>
-        <div class="s72">Place a commission</div>
-        <p class="s73">Tell us the day. We will write the rest.</p>
+        <div class="s72">{{S:cta.title}}</div>
+        <p class="s73">{{S:cta.text}}</p>
       </div>
       <div class="s74">
         <div class="s75"></div>
         <div class="s76">
-          <a href="enquire.html#call" class="s77 hv6">Request a call</a>
-          <a href="enquire.html#email" class="s78 hv7">Request an email</a>
+          <a href="enquire.html#call" class="s77 hv6">{{S:cta.call}}</a>
+          <a href="enquire.html#email" class="s78 hv7">{{S:cta.email}}</a>
         </div>
       </div>
     </div>
@@ -86,28 +85,28 @@
       <div class="s80">
         <div>
           <div class="s81"></div>
-          <p class="s82">A private house for chauffeured movement, concierge arrangements and curated journeys.</p>
+          <p class="s82">{{S:foot.tagline}}</p>
         </div>
         <div>
-          <div class="s83">Commissions</div>
+          <div class="s83">{{S:name.commissions}}</div>
           <div class="s84">
-            <a href="chauffeur.html" class="s85 hv8">The Chauffeur</a>
-            <a href="concierge.html" class="s85 hv8">The Concierge</a>
-            <a href="journey.html" class="s85 hv8">The Journey</a>
-            <a href="retainer.html" class="s85 hv8">The Retainer</a>
+            <a href="chauffeur.html" class="s85 hv8">{{S:name.chauffeur}}</a>
+            <a href="concierge.html" class="s85 hv8">{{S:name.concierge}}</a>
+            <a href="journey.html" class="s85 hv8">{{S:name.journey}}</a>
+            <a href="retainer.html" class="s85 hv8">{{S:name.retainer}}</a>
           </div>
         </div>
         <div>
-          <div class="s83">The house</div>
+          <div class="s83">{{S:foot.house}}</div>
           <div class="s84">
-            <a href="fleet.html" class="s85 hv8">The fleet</a>
-            <a href="the-house.html" class="s85 hv8">About the house</a>
-            <a href="contact.html" class="s85 hv8">Request contact</a>
+            <a href="fleet.html" class="s85 hv8">{{S:foot.fleet}}</a>
+            <a href="the-house.html" class="s85 hv8">{{S:foot.about}}</a>
+            <a href="contact.html" class="s85 hv8">{{S:nav.contact}}</a>
             <a href="https://www.signaturedriversclub.nl" target="_blank" rel="noopener" class="s86 hv8">Signature Drivers Club</a>
           </div>
         </div>
         <div>
-          <div class="s83">Details</div>
+          <div class="s83">{{S:foot.details}}</div>
           <div class="s87">
             <a href="tel:+31297223448" class="s88 hv8">+31 297 223 448</a>
             <a href="mailto:info@lohuissignature.nl" class="s88 hv8">info@lohuissignature.nl</a>
@@ -117,24 +116,24 @@
         </div>
       </div>
       <div class="s89">
-        <span>© 2026 Lohuis Signature</span>
+        <span>{{S:foot.copyright}}</span>
         <span class="s90">
-          <a href="faq.html" class="s91 hv8">FAQ</a>
-          <a href="privacy.html" class="s91 hv8">Privacy</a>
-          <a href="terms.html" class="s91 hv8">Terms</a>
+          <a href="faq.html" class="s91 hv8">{{S:foot.faq}}</a>
+          <a href="{{ROOT}}privacy.html" class="s91 hv8">{{S:foot.privacy}}</a>
+          <a href="{{ROOT}}terms.html" class="s91 hv8">{{S:foot.terms}}</a>
         </span>
-        <span>Aalsmeer · Netherlands</span>
+        <span>{{S:foot.location}}</span>
       </div>
     </div>
   </footer>
 </div>
 <!-- Phones only. The header collapses to a menu button below 700px, which
      leaves no visible way to call from any page; see TAP BAR in css/site.css. -->
-<nav class="tapbar" aria-label="Contact">
-  <a class="tapbar-item" href="tel:+31297223448">Call</a>
-  <a class="tapbar-item" href="https://wa.me/31622429270" target="_blank" rel="noopener">WhatsApp</a>
+<nav class="tapbar" aria-label="{{S:aria.tapbar}}">
+  <a class="tapbar-item" href="tel:+31297223448">{{S:tap.call}}</a>
+  <a class="tapbar-item" href="https://wa.me/31622429270" target="_blank" rel="noopener">{{S:tap.whatsapp}}</a>
 </nav>
 
-<script src="js/site.js" defer></script>
+<script src="{{ROOT}}js/site.js" defer></script>
 </body>
 </html>
