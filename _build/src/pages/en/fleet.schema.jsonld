@@ -22,98 +22,44 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "item": {
-            "@type": "Vehicle",
-            "name": "Mercedes-Benz S-Class / BMW 7 Series",
-            "vehicleSeatingCapacity": {
-              "@type": "QuantitativeValue",
-              "minValue": 1,
-              "maxValue": 3
-            },
-            "description": "The standing answer for executive work, in either hand as the client prefers."
-          }
+          "name": "Mercedes-Benz S-Class / BMW 7 Series",
+          "description": "Seats 1–3. The standing answer for executive work, in either hand as the client prefers."
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "item": {
-            "@type": "Vehicle",
-            "name": "Bentley Flying Spur",
-            "vehicleSeatingCapacity": {
-              "@type": "QuantitativeValue",
-              "minValue": 1,
-              "maxValue": 3
-            },
-            "description": "For evenings and occasions that ask for more voice."
-          }
+          "name": "Bentley Flying Spur",
+          "description": "Seats 1–3. For evenings and occasions that ask for more voice."
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "item": {
-            "@type": "Vehicle",
-            "name": "Rolls-Royce Ghost",
-            "vehicleSeatingCapacity": {
-              "@type": "QuantitativeValue",
-              "minValue": 1,
-              "maxValue": 3
-            },
-            "description": "Weddings, premieres and days meant to be remembered."
-          }
+          "name": "Rolls-Royce Ghost",
+          "description": "Seats 1–3. Weddings, premieres and days meant to be remembered."
         },
         {
           "@type": "ListItem",
           "position": 4,
-          "item": {
-            "@type": "Vehicle",
-            "name": "Mercedes-Benz E-Class / BMW 5 Series",
-            "vehicleSeatingCapacity": {
-              "@type": "QuantitativeValue",
-              "minValue": 1,
-              "maxValue": 3
-            },
-            "description": "City work and shorter transfers, where being unremarkable is the point."
-          }
+          "name": "Mercedes-Benz E-Class / BMW 5 Series",
+          "description": "Seats 1–3. City work and shorter transfers, where being unremarkable is the point."
         },
         {
           "@type": "ListItem",
           "position": 5,
-          "item": {
-            "@type": "Vehicle",
-            "name": "Mercedes-Benz V-Class",
-            "vehicleSeatingCapacity": {
-              "@type": "QuantitativeValue",
-              "minValue": 4,
-              "maxValue": 7
-            },
-            "description": "Delegations and families travelling together, with room to work en route."
-          }
+          "name": "Mercedes-Benz V-Class",
+          "description": "Seats 4–7. Delegations and families travelling together, with room to work en route."
         },
         {
           "@type": "ListItem",
           "position": 6,
-          "item": {
-            "@type": "Vehicle",
-            "name": "Mercedes-Benz Sprinter",
-            "vehicleSeatingCapacity": {
-              "@type": "QuantitativeValue",
-              "maxValue": 8
-            },
-            "description": "A full party kept together, with luggage."
-          }
+          "name": "Mercedes-Benz Sprinter",
+          "description": "Seats up to 8. A full party kept together, with luggage."
         },
         {
           "@type": "ListItem",
           "position": 7,
-          "item": {
-            "@type": "Vehicle",
-            "name": "Mercedes-Benz Sprinter mini coach",
-            "vehicleSeatingCapacity": {
-              "@type": "QuantitativeValue",
-              "maxValue": 19
-            },
-            "description": "Whole teams and visiting delegations on one timetable."
-          }
+          "name": "Mercedes-Benz Sprinter mini coach",
+          "description": "Seats up to 19. Whole teams and visiting delegations on one timetable."
         }
       ]
     }
