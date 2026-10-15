@@ -1,0 +1,17 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Voorwaarden",
+          "item": "https://www.lohuissignature.nl/nl/terms.html"
+        }
+      ]
+    }
