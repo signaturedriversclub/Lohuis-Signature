@@ -27,7 +27,7 @@ CHILDREN = ["chauffeur", "concierge", "journey", "retainer"]
 # worse than none at all.
 PAGES = ["index", "commissions", "chauffeur", "concierge", "journey", "retainer",
          "fleet", "the-house", "contact", "enquire", "faq", "privacy", "terms"]
-ENGLISH_ONLY = {"privacy", "terms"}
+ENGLISH_ONLY = {"terms"}   # privacy now exists in both languages
 
 LANGS = {
     "en": {"dir": "",    "lang": "en", "locale": "en_GB", "root": ""},
