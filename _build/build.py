@@ -13,7 +13,7 @@ indexed long before Dutch existed, and GitHub Pages cannot issue a real 301, so
 moving them would mean replacing live pages with client-side redirect stubs.
 Dutch is additive instead: no existing address changes.
 """
-import json, os, sys
+import hashlib, json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC  = os.path.join(ROOT, "_build", "src")
@@ -87,6 +87,43 @@ def hreflang_block(slug):
     return "\n".join(lines)
 
 
+def asset_version(relpath):
+    """?v= derived from the file's own bytes. It changes when the file changes
+    and not otherwise, so a stylesheet edit reaches people immediately instead
+    of waiting out the ten-minute cache, and an unchanged file stays cached."""
+    path = os.path.join(ROOT, relpath)
+    if not os.path.exists(path):
+        return ""
+    with open(path, "rb") as fh:
+        return "?v=" + hashlib.sha256(fh.read()).hexdigest()[:8]
+
+
+def rel_url(from_lang, to_lang, page):
+    """Address of `page` in to_lang, relative to a page sitting in from_lang."""
+    up = "../" if LANGS[from_lang]["dir"] else ""
+    down = LANGS[to_lang]["dir"]
+    if page == "index":
+        return (up + down) or "index.html"
+    return up + down + slug_for(to_lang, page) + ".html"
+
+
+def lang_switch(lang, page, strings):
+    """Both labels, always in the same order so the pair does not move when
+    used. The current one is inert; the other is the link. A page with no
+    counterpart - terms and privacy are English only - points at the other
+    language's homepage rather than at nothing."""
+    label = strings.get("aria.lang", "")
+    other = "nl" if lang == "en" else "en"
+    target = page if exists(other, page) else "index"
+    href = rel_url(lang, other, target)
+    link = ('<a href="%s" class="s258" hreflang="%s" lang="%s" aria-label="%s">%s</a>'
+            % (href, other, other, label, other.upper()))
+    here = '<span class="s259" aria-current="true">%s</span>' % lang.upper()
+    sep = '<span class="s260" aria-hidden="true">&middot;</span>'
+    parts = [here, sep, link] if lang == "en" else [link, sep, here]
+    return '<span class="s257">%s</span>' % "".join(parts)
+
+
 def render(lang, slug, layout, shared, strings):
     cfg   = LANGS[lang]
     meta  = json.loads(slurp(SRC, "pages", lang, slug + ".json"))
@@ -110,6 +147,10 @@ def render(lang, slug, layout, shared, strings):
 
     # site.js writes some of its own interface text. English lives in the script
     # as its fallback, so only other languages need to hand it a table.
+    out = out.replace("{{LANGSWITCH}}", lang_switch(lang, slug, strings))
+    out = out.replace("{{V:css}}", asset_version("css/site.css"))
+    out = out.replace("{{V:js}}", asset_version("js/site.js"))
+
     js = {k: v for k, v in strings.items() if k.startswith("js.")}
     out = out.replace("{{I18N}}", "<script>window.LS_I18N=%s;</script>\n"
                       % json.dumps(js, ensure_ascii=False, sort_keys=True) if js else "")
