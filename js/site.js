@@ -242,6 +242,32 @@
     });
 
     gallery.appendChild(nav);
+
+    /* Swipe. The dot nav is deliberately small, which on a phone makes it a
+       poor target, so a sideways drag across the photograph moves between
+       them. Vertical movement is left alone so the page still scrolls: a
+       gesture only counts when it is clearly horizontal, and both listeners
+       are passive so scrolling is never held up waiting on this. */
+    var startX = 0, startY = 0, tracking = false;
+
+    gallery.addEventListener('touchstart', function (event) {
+      if (event.touches.length !== 1) { tracking = false; return; }
+      startX = event.touches[0].clientX;
+      startY = event.touches[0].clientY;
+      tracking = true;
+    }, { passive: true });
+
+    gallery.addEventListener('touchend', function (event) {
+      if (!tracking) return;
+      tracking = false;
+      var touch = event.changedTouches[0];
+      var dx = touch.clientX - startX;
+      var dy = touch.clientY - startY;
+      if (Math.abs(dx) < 40) return;              // a tap, or a stray finger
+      if (Math.abs(dx) < Math.abs(dy) * 1.4) return;  // they were scrolling
+      show(dx < 0 ? (current + 1) % images.length
+                  : (current - 1 + images.length) % images.length);
+    }, { passive: true });
   });
 
   /* --- Enquiry form ------------------------------------------------------- */

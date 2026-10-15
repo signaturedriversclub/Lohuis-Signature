@@ -189,6 +189,19 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
 }
 [data-gal] .gal-nav [aria-selected="true"] span { opacity: 1; height: 2px; }
 
+/* Horizontal gestures on a gallery belong to the gallery, not to the browser's
+   own back-swipe; vertical still scrolls the page. */
+[data-gal] { touch-action: pan-y; }
+
+/* On a touch screen the markers are both the control and the only sign that
+   more photographs exist, so give them more to aim at. */
+@media (pointer: coarse) {
+  [data-gal] .gal-nav { gap: 10px; bottom: 8px; }
+  [data-gal] .gal-nav button { padding: 16px 5px; }
+  [data-gal] .gal-nav span { height: 2px; width: 26px; }
+  [data-gal] .gal-nav [aria-selected="true"] span { height: 3px; }
+}
+
 /* --- Animation ------------------------------------------------------------ */
 @keyframes kb  { from { transform: scale(1.16);  } to { transform: scale(1.005); } }
 @keyframes kbs { from { transform: scale(1.1);   } to { transform: scale(1);     } }
