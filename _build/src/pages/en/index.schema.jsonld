@@ -6,5 +6,5 @@
       "publisher": {
         "@id": "https://www.lohuissignature.nl/#organization"
       },
-      "inLanguage": "en"
+      "inLanguage": ["en", "nl"]
     }

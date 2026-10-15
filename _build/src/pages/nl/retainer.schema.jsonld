@@ -1,0 +1,39 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "De Retainer",
+          "item": "https://www.lohuissignature.nl/nl/retainer.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/nl/retainer.html#service",
+      "name": "Vaste chauffeur op retainer",
+      "description": "Een doorlopende afspraak: dezelfde vaste chauffeur en dezelfde auto, beschikbaar gehouden voor uw agenda per seizoen of per jaar, met concierge-arrangementen waar die gevraagd worden.",
+      "serviceType": "Vaste chauffeur",
+      "url": "https://www.lohuissignature.nl/nl/retainer.html",
+      "inLanguage": "nl",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Nederland"
+        },
+        {
+          "@type": "Place",
+          "name": "Europa"
+        }
+      ]
+    }

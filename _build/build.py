@@ -107,6 +107,12 @@ def render(lang, slug, layout, shared, strings):
 
     for key, val in strings.items():
         out = out.replace("{{S:%s}}" % key, val)
+
+    # site.js writes some of its own interface text. English lives in the script
+    # as its fallback, so only other languages need to hand it a table.
+    js = {k: v for k, v in strings.items() if k.startswith("js.")}
+    out = out.replace("{{I18N}}", "<script>window.LS_I18N=%s;</script>\n"
+                      % json.dumps(js, ensure_ascii=False, sort_keys=True) if js else "")
     for page in PAGES:
         out = out.replace("{{U:%s}}" % page, slug_for(lang, page) + ".html")
 

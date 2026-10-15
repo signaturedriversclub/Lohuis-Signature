@@ -29,5 +29,22 @@
   "foot.terms": "Voorwaarden",
   "foot.location": "Aalsmeer · Nederland",
   "tap.call": "Bellen",
-  "tap.whatsapp": "WhatsApp"
+  "tap.whatsapp": "WhatsApp",
+  "js.menu.close": "Menu sluiten",
+  "js.menu.open": "Menu",
+  "js.sub.hide": "Verberg de vier missies",
+  "js.sub.show": "Toon de vier missies",
+  "js.call.title": "Vraag een gesprek aan",
+  "js.call.intro": "Laat een nummer achter en een tijdstip dat u schikt. U wordt gebeld door de persoon die de missie zou behandelen.",
+  "js.email.title": "Vraag een e-mail aan",
+  "js.email.intro": "Vertel ons schriftelijk wat u nodig heeft. U krijgt een doordacht antwoord, geen automatisch bericht.",
+  "js.err.first": "Een voornaam, alstublieft.",
+  "js.err.surname": "Een achternaam, alstublieft.",
+  "js.err.phone": "Een telefoonnummer, zodat wij u kunnen bellen.",
+  "js.err.email": "Een e-mailadres, zodat wij u kunnen schrijven.",
+  "js.sending": "Versturen",
+  "js.sending.msg": "Uw aanvraag wordt verstuurd.",
+  "js.sent": "Verstuurd",
+  "js.thanks": "Dank u — uw aanvraag is bij ons. U hoort van een van twee personen, doorgaans nog dezelfde dag.",
+  "js.failed": "Dat is niet verstuurd. Belt u +31 297 223 448 of schrijft u naar info@lohuissignature.nl."
 }
