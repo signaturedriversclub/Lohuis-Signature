@@ -21,7 +21,7 @@ PAGES = ["index", "commissions", "chauffeur", "concierge", "journey", "retainer"
 LANGS = {"en": "", "nl": "nl/"}
 SLUGS = {"en": {}, "nl": {"commissions": "missies", "journey": "reis",
                           "fleet": "wagenpark", "the-house": "het-huis",
-                          "enquire": "aanvragen", "faq": "vragen"}}
+                          "enquire": "aanvragen"}}
 
 
 def slug_for(lang, page):

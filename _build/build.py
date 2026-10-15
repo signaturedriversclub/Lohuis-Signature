@@ -34,14 +34,19 @@ LANGS = {
     "nl": {"dir": "nl/", "lang": "nl", "locale": "nl_NL", "root": "../"},
 }
 
-# Dutch pages get Dutch addresses. Chosen before /nl/ was ever published: once a
-# URL is indexed, changing it costs a redirect stub, which is exactly what we
-# refused to do to the English pages. Anything not listed keeps its own name
-# because the word is the same in both languages (chauffeur, concierge, ...).
+# A page's address matches the label a visitor sees on it, so /nl/wagenpark.html
+# sits under a nav item reading "Wagenpark". Pages are absent from this map when
+# that label is already the same in both languages - chauffeur, concierge,
+# retainer, contact - and FAQ, which is a loan abbreviation Dutch uses as its
+# own, the way the site already uses roadshow and concierge.
+#
+# Settled before anything under /nl/ was published: once a URL is indexed,
+# changing it costs a redirect stub, which is what we refused to do to the
+# English pages.
 SLUGS = {
     "en": {},
     "nl": {"commissions": "missies", "journey": "reis", "fleet": "wagenpark",
-           "the-house": "het-huis", "enquire": "aanvragen", "faq": "vragen"},
+           "the-house": "het-huis", "enquire": "aanvragen"},
 }
 
 
