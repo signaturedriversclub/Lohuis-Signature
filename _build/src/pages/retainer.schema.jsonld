@@ -1,0 +1,38 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The Retainer",
+          "item": "https://www.lohuissignature.nl/retainer.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/retainer.html#service",
+      "name": "Chauffeur and concierge retainer",
+      "description": "A standing arrangement holding the same named chauffeur, vehicle and concierge against your diary for a season or a year.",
+      "serviceType": "Chauffeur and concierge retainer",
+      "url": "https://www.lohuissignature.nl/retainer.html",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Netherlands"
+        },
+        {
+          "@type": "Place",
+          "name": "Europe"
+        }
+      ]
+    }

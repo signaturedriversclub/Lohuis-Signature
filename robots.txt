@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# The page sources live in _build/. They are fragments, not pages: no doctype,
+# no head, nothing a visitor should land on. GitHub Pages serves every file in
+# the repository, so they are excluded here rather than hidden.
+Disallow: /_build/
+
 Sitemap: https://www.lohuissignature.nl/sitemap.xml

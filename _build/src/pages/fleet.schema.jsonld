@@ -1,0 +1,119 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The Fleet",
+          "item": "https://www.lohuissignature.nl/fleet.html"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "The Lohuis Signature fleet",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Vehicle",
+            "name": "Mercedes-Benz S-Class / BMW 7 Series",
+            "vehicleSeatingCapacity": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 3
+            },
+            "description": "The standing answer for executive work, in either hand as the client prefers."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Vehicle",
+            "name": "Bentley Flying Spur",
+            "vehicleSeatingCapacity": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 3
+            },
+            "description": "For evenings and occasions that ask for more voice."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Vehicle",
+            "name": "Rolls-Royce Ghost",
+            "vehicleSeatingCapacity": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 3
+            },
+            "description": "Weddings, premieres and days meant to be remembered."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Vehicle",
+            "name": "Mercedes-Benz E-Class / BMW 5 Series",
+            "vehicleSeatingCapacity": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 3
+            },
+            "description": "City work and shorter transfers, where being unremarkable is the point."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "Vehicle",
+            "name": "Mercedes-Benz V-Class",
+            "vehicleSeatingCapacity": {
+              "@type": "QuantitativeValue",
+              "minValue": 4,
+              "maxValue": 7
+            },
+            "description": "Delegations and families travelling together, with room to work en route."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "Vehicle",
+            "name": "Mercedes-Benz Sprinter",
+            "vehicleSeatingCapacity": {
+              "@type": "QuantitativeValue",
+              "maxValue": 8
+            },
+            "description": "A full party kept together, with luggage."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "Vehicle",
+            "name": "Mercedes-Benz Sprinter mini coach",
+            "vehicleSeatingCapacity": {
+              "@type": "QuantitativeValue",
+              "maxValue": 19
+            },
+            "description": "Whole teams and visiting delegations on one timetable."
+          }
+        }
+      ]
+    }
