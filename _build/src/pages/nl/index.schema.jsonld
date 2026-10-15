@@ -1,0 +1,10 @@
+    {
+      "@type": "WebSite",
+      "@id": "https://www.lohuissignature.nl/#website",
+      "url": "https://www.lohuissignature.nl/",
+      "name": "Lohuis Signature",
+      "publisher": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "inLanguage": ["en", "nl"]
+    }

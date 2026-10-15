@@ -7,6 +7,15 @@
 (function () {
   'use strict';
 
+  /* Interface strings the script writes itself. The page supplies Dutch (and
+     any later language) through window.LS_I18N; the English wording below is
+     the fallback, so a page that ships no table behaves exactly as before. */
+  function T(key, fallback) {
+    var t = window.LS_I18N;
+    return (t && typeof t[key] === 'string') ? t[key] : fallback;
+  }
+
+
   var reduced = window.matchMedia &&
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -41,7 +50,7 @@
       if (open) { root.setAttribute('data-menu-open', ''); }
       else { root.removeAttribute('data-menu-open'); }
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
+      toggle.setAttribute('aria-label', open ? T('js.menu.close', 'Close menu') : T('js.menu.open', 'Menu'));
     };
 
     toggle.addEventListener('click', function () {
@@ -96,7 +105,8 @@
         else { subGroup.removeAttribute('data-sub-open'); }
         subToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         subToggle.setAttribute('aria-label',
-          open ? 'Hide the four commissions' : 'Show the four commissions');
+          open ? T('js.sub.hide', 'Hide the four commissions')
+               : T('js.sub.show', 'Show the four commissions'));
       };
 
       subToggle.addEventListener('click', function () {
@@ -248,14 +258,14 @@
 
     var COPY = {
       call: {
-        title: 'Request a call',
-        intro: 'Leave a number and a time that suits. You will be called by the ' +
-               'person who would handle the commission.'
+        title: T('js.call.title', 'Request a call'),
+        intro: T('js.call.intro', 'Leave a number and a time that suits. You will be called by the ' +
+               'person who would handle the commission.')
       },
       email: {
-        title: 'Request an email',
-        intro: 'Tell us what you need in writing. You will have a considered ' +
-               'reply, not an automated one.'
+        title: T('js.email.title', 'Request an email'),
+        intro: T('js.email.intro', 'Tell us what you need in writing. You will have a considered ' +
+               'reply, not an automated one.')
       }
     };
 
@@ -333,17 +343,17 @@
         return field && field.value ? field.value.trim() : '';
       };
 
-      if (!value('first_name')) return stop('first_name', 'A first name, please.');
-      if (!value('surname'))    return stop('surname', 'A surname, please.');
+      if (!value('first_name')) return stop('first_name', T('js.err.first', 'A first name, please.'));
+      if (!value('surname'))    return stop('surname', T('js.err.surname', 'A surname, please.'));
       // Asking to be telephoned without a number, or written to without an
       // address, leaves us no way to answer.
-      if (mode === 'call'  && !value('phone')) return stop('phone', 'A telephone number, so we can call you.');
-      if (mode === 'email' && !value('email')) return stop('email', 'An email address, so we can write to you.');
+      if (mode === 'call'  && !value('phone')) return stop('phone', T('js.err.phone', 'A telephone number, so we can call you.'));
+      if (mode === 'email' && !value('email')) return stop('email', T('js.err.email', 'An email address, so we can write to you.'));
 
       var button = form.querySelector('button[type="submit"]');
       var original = button ? button.textContent : '';
-      if (button) { button.disabled = true; button.textContent = 'Sending'; }
-      say('Sending your enquiry.', true);
+      if (button) { button.disabled = true; button.textContent = T('js.sending', 'Sending'); }
+      say(T('js.sending.msg', 'Sending your enquiry.'), true);
 
       var data = {};
       new FormData(form).forEach(function (v, k) { data[k] = v; });
@@ -360,10 +370,10 @@
         if (!result.ok) throw new Error(result.body && result.body.message);
         form.reset();
         setMode(mode);
-        say('Thank you — your enquiry is with us. You will hear from one of two people, usually within the day.', true);
-        if (button) { button.textContent = 'Sent'; }
+        say(T('js.thanks', 'Thank you — your enquiry is with us. You will hear from one of two people, usually within the day.'), true);
+        if (button) { button.textContent = T('js.sent', 'Sent'); }
       }).catch(function () {
-        say('That did not send. Please telephone +31 297 223 448 or write to info@lohuissignature.nl.', false);
+        say(T('js.failed', 'That did not send. Please telephone +31 297 223 448 or write to info@lohuissignature.nl.'), false);
         if (button) { button.disabled = false; button.textContent = original; }
       });
     });

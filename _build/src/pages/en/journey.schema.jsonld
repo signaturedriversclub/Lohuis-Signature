@@ -1,0 +1,38 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The Journey",
+          "item": "https://www.lohuissignature.nl/journey.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/journey.html#service",
+      "name": "Curated private road journeys",
+      "description": "Multi-day chauffeured road journeys across Europe, with route, houses and support arranged around a single party.",
+      "serviceType": "Curated private road journeys",
+      "url": "https://www.lohuissignature.nl/journey.html",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Netherlands"
+        },
+        {
+          "@type": "Place",
+          "name": "Europe"
+        }
+      ]
+    }

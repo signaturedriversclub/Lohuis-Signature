@@ -1,0 +1,35 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "De Reis",
+          "item": "https://www.lohuissignature.nl/nl/reis.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/nl/reis.html#service",
+      "name": "Besloten autoreizen met chauffeur",
+      "description": "Meerdaagse autoreizen door Europa voor één gezelschap tegelijk, persoonlijk verkend voordat ze worden aangeboden. Route, huizen en ondersteuning rond één gezelschap geregeld.",
+      "serviceType": "Besloten autoreizen met chauffeur",
+      "url": "https://www.lohuissignature.nl/nl/reis.html",
+      "inLanguage": "nl",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "Place",
+          "name": "Europa"
+        }
+      ]
+    }

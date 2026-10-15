@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+{{CANON}}<meta property="og:type" content="website">
+{{OGURL}}<meta property="og:site_name" content="Lohuis Signature">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:locale" content="{{LOCALE}}">
+<meta name="twitter:card" content="summary_large_image">
+{{ROBOTS}}<meta name="theme-color" content="#141311">
+<link rel="preload" href="{{ROOT}}fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ROOT}}css/site.css{{V:css}}">
+<script>document.documentElement.className+=" js";</script>
+{{SCHEMA_BLOCK}}<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:image" content="https://www.lohuissignature.nl/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lohuis Signature — chauffeur, concierge and curated journeys">
+<meta name="twitter:image" content="https://www.lohuissignature.nl/images/og-image.jpg">
+</head>
+<body>
+<a class="skip-link" href="#main">{{S:skip}}</a>
+<div class="page">
+  <header class="s1">
+    <div class="s2">
+      <a href="{{U:index}}"  aria-label="{{S:aria.home}}" class="s3 site-logo"></a>
+      <button class="nav-toggle" type="button" aria-label="{{S:aria.menu}}" aria-expanded="false" aria-controls="site-menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
+      <nav data-ls-nav="1" id="site-menu" class="s4">
+        <div class="nav-group" data-nav-group>
+          <a href="{{U:commissions}}"{{AC:commissions}} class="s5">{{S:name.commissions}}<span class="{{SP:commissions}}"></span></a>
+          <button class="nav-sub-toggle" type="button" aria-expanded="false" aria-controls="sub-commissions" aria-label="{{S:aria.submenu}}"><span class="nav-sub-arrow" aria-hidden="true"></span></button>
+          <div class="nav-sub" id="sub-commissions">
+            <div class="nav-sub-inner">
+            <a href="{{U:chauffeur}}"{{AC:chauffeur}}>{{S:name.chauffeur}}</a>
+            <a href="{{U:concierge}}"{{AC:concierge}}>{{S:name.concierge}}</a>
+            <a href="{{U:journey}}"{{AC:journey}}>{{S:name.journey}}</a>
+            <a href="{{U:retainer}}"{{AC:retainer}}>{{S:name.retainer}}</a>
+            </div>
+          </div>
+        </div>
+        <a href="{{U:fleet}}"{{AC:fleet}} class="s5">{{S:nav.fleet}}<span class="{{SP:fleet}}"></span></a>
+        <a href="{{U:the-house}}"{{AC:the-house}} class="s5">{{S:nav.house}}<span class="{{SP:the-house}}"></span></a>
+        {{LANGSWITCH}}
+        <a href="tel:+31297223448" class="s7 nav-call">{{S:nav.call}}</a>
+        <a href="{{U:contact}}" class="s7 hv1">{{S:nav.contact}}</a>
+      </nav>
+    </div>
+  </header>
+{{MAIN}}
+  <section class="s70">
+    <div class="s71">
+      <div>
+        <div class="s72">{{S:cta.title}}</div>
+        <p class="s73">{{S:cta.text}}</p>
+      </div>
+      <div class="s74">
+        <div class="s75"></div>
+        <div class="s76">
+          <a href="{{U:enquire}}#call" class="s77 hv6">{{S:cta.call}}</a>
+          <a href="{{U:enquire}}#email" class="s78 hv7">{{S:cta.email}}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="s79">
+    <div class="s32">
+      <div class="s80">
+        <div>
+          <div class="s81"></div>
+          <p class="s82">{{S:foot.tagline}}</p>
+        </div>
+        <div>
+          <div class="s83">{{S:name.commissions}}</div>
+          <div class="s84">
+            <a href="{{U:chauffeur}}" class="s85 hv8">{{S:name.chauffeur}}</a>
+            <a href="{{U:concierge}}" class="s85 hv8">{{S:name.concierge}}</a>
+            <a href="{{U:journey}}" class="s85 hv8">{{S:name.journey}}</a>
+            <a href="{{U:retainer}}" class="s85 hv8">{{S:name.retainer}}</a>
+          </div>
+        </div>
+        <div>
+          <div class="s83">{{S:foot.house}}</div>
+          <div class="s84">
+            <a href="{{U:fleet}}" class="s85 hv8">{{S:foot.fleet}}</a>
+            <a href="{{U:the-house}}" class="s85 hv8">{{S:foot.about}}</a>
+            <a href="{{U:contact}}" class="s85 hv8">{{S:nav.contact}}</a>
+            <a href="https://www.signaturedriversclub.nl" target="_blank" rel="noopener" class="s86 hv8">Signature Drivers Club</a>
+          </div>
+        </div>
+        <div>
+          <div class="s83">{{S:foot.details}}</div>
+          <div class="s87">
+            <a href="tel:+31297223448" class="s88 hv8">+31 297 223 448</a>
+            <a href="mailto:info@lohuissignature.nl" class="s88 hv8">info@lohuissignature.nl</a>
+            <span>KvK 76937690</span>
+            <span>{{S:foot.vat}} NL00460544B82</span>
+          </div>
+        </div>
+      </div>
+      <div class="s89">
+        <span>{{S:foot.copyright}}</span>
+        <span class="s90">
+          <a href="{{U:faq}}" class="s91 hv8">{{S:foot.faq}}</a>
+          <a href="{{ROOT}}privacy.html" class="s91 hv8">{{S:foot.privacy}}</a>
+          <a href="{{ROOT}}terms.html" class="s91 hv8">{{S:foot.terms}}</a>
+        </span>
+        <span>{{S:foot.location}}</span>
+      </div>
+    </div>
+  </footer>
+</div>
+<!-- Phones only. The header collapses to a menu button below 700px, which
+     leaves no visible way to call from any page; see TAP BAR in css/site.css. -->
+<nav class="tapbar" aria-label="{{S:aria.tapbar}}">
+  <a class="tapbar-item" href="tel:+31297223448">{{S:tap.call}}</a>
+  <a class="tapbar-item" href="https://wa.me/31622429270" target="_blank" rel="noopener">{{S:tap.whatsapp}}</a>
+</nav>
+
+{{I18N}}<script src="{{ROOT}}js/site.js{{V:js}}" defer></script>
+</body>
+</html>

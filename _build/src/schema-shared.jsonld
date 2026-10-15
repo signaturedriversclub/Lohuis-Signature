@@ -1,0 +1,167 @@
+    {
+      "@type": "LocalBusiness",
+      "additionalType": "https://en.wikipedia.org/wiki/Chauffeur",
+      "@id": "https://www.lohuissignature.nl/#organization",
+      "name": "Lohuis Signature",
+      "url": "https://www.lohuissignature.nl/",
+      "logo": "https://www.lohuissignature.nl/images/brand/logo-512.png",
+      "image": "https://www.lohuissignature.nl/images/home-hero.webp",
+      "description": "A private house for chauffeured movement, concierge arrangements and curated journeys. Based in Aalsmeer, minutes from Amsterdam Airport Schiphol, and working across the Netherlands and continental Europe.",
+      "telephone": "+31297223448",
+      "email": "info@lohuissignature.nl",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "enquiries",
+          "telephone": "+31297223448",
+          "email": "info@lohuissignature.nl",
+          "availableLanguage": [
+            "nl",
+            "en"
+          ]
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Twijnderlaan 19",
+        "postalCode": "1431 DD",
+        "addressLocality": "Aalsmeer",
+        "addressRegion": "Noord-Holland",
+        "addressCountry": "NL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 52.2698186,
+        "longitude": 4.7557101
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Netherlands"
+        },
+        {
+          "@type": "Country",
+          "name": "Belgium"
+        },
+        {
+          "@type": "Country",
+          "name": "Germany"
+        },
+        {
+          "@type": "Country",
+          "name": "France"
+        },
+        {
+          "@type": "Country",
+          "name": "Switzerland"
+        },
+        {
+          "@type": "Country",
+          "name": "Italy"
+        },
+        {
+          "@type": "City",
+          "name": "Amsterdam"
+        },
+        {
+          "@type": "Place",
+          "name": "Amsterdam Airport Schiphol"
+        }
+      ],
+      "founder": {
+        "@id": "https://www.lohuissignature.nl/#lowi-lohuis"
+      },
+      "vatID": "NL00460544B82",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "name": "KvK",
+          "value": "76937690"
+        }
+      ],
+      "knowsLanguage": [
+        "nl",
+        "en"
+      ],
+      "sameAs": [
+        "https://www.facebook.com/lohuistravels/",
+        "https://www.instagram.com/lohuissignature/",
+        "https://www.linkedin.com/company/lohuis-signature/",
+        "https://maps.google.com/?cid=7371174078610788796"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Commissions",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://www.lohuissignature.nl/chauffeur.html#service",
+              "name": "Private chauffeur hire",
+              "url": "https://www.lohuissignature.nl/chauffeur.html"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://www.lohuissignature.nl/concierge.html#service",
+              "name": "Private concierge service",
+              "url": "https://www.lohuissignature.nl/concierge.html"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://www.lohuissignature.nl/journey.html#service",
+              "name": "Curated private road journeys",
+              "url": "https://www.lohuissignature.nl/journey.html"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://www.lohuissignature.nl/retainer.html#service",
+              "name": "Chauffeur and concierge retainer",
+              "url": "https://www.lohuissignature.nl/retainer.html"
+            }
+          }
+        ]
+      },
+      "subOrganization": {
+        "@type": "Organization",
+        "@id": "https://www.signaturedriversclub.nl/#organization",
+        "name": "Signature Drivers Club",
+        "url": "https://www.signaturedriversclub.nl/"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.lohuissignature.nl/#lowi-lohuis",
+      "name": "Lowi Lohuis",
+      "jobTitle": "Founder",
+      "worksFor": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "url": "https://www.lohuissignature.nl/the-house.html",
+      "sameAs": [
+        "https://www.linkedin.com/in/lowi-lohuis-9b0127230"
+      ]
+    }

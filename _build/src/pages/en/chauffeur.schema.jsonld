@@ -1,0 +1,38 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The Chauffeur",
+          "item": "https://www.lohuissignature.nl/chauffeur.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/chauffeur.html#service",
+      "name": "Private chauffeur hire",
+      "description": "A prepared car and a dedicated chauffeur, or a chauffeur for the car you already own. Executive transfers, airport work from Schiphol, roadshows, delegations and multi-day assignments.",
+      "serviceType": "Private chauffeur hire",
+      "url": "https://www.lohuissignature.nl/chauffeur.html",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Netherlands"
+        },
+        {
+          "@type": "Place",
+          "name": "Europe"
+        }
+      ]
+    }

@@ -1,0 +1,39 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "De Concierge",
+          "item": "https://www.lohuissignature.nl/nl/concierge.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/nl/concierge.html#service",
+      "name": "Privé conciergeservice",
+      "description": "Accommodatie, reserveringen, toegang en de verzoeken die in geen enkele categorie passen, behandeld door mensen die uw agenda al kennen.",
+      "serviceType": "Privé conciergeservice",
+      "url": "https://www.lohuissignature.nl/nl/concierge.html",
+      "inLanguage": "nl",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Nederland"
+        },
+        {
+          "@type": "Place",
+          "name": "Europa"
+        }
+      ]
+    }

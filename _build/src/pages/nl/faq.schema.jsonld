@@ -1,0 +1,119 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Vragen",
+          "item": "https://www.lohuissignature.nl/nl/faq.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "nl",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hoe ver van tevoren moeten wij het vragen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Voor een transfer is een dag vaak genoeg. Meerdaagse opdrachten, reizen en alles waarbij een bepaalde auto komt kijken, kunt u beter weken vooruit plaatsen — wij nemen een beperkt aantal missies tegelijk aan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Waar werkt u?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vanuit Aalsmeer door heel Nederland — het vaakst Amsterdam, Den Haag en de adressen daartussen — en over de weg door heel continentaal Europa. Reizen gaan regelmatig naar België, Duitsland, Frankrijk, Zwitserland en Italië."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kunt u onze eigen auto rijden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Onze chauffeurs zijn gewend aan collectie- en merkauto's, en de auto wordt precies zo teruggebracht als hij vertrok. De overdracht wordt op het woonadres of bij kantoor geregeld."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe wordt een missie geprijsd?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Naar de dag in plaats van naar de afstand. Auto, chauffeur, tijden en kosten komen in één schriftelijk voorstel, aangepast tot het klopt. Achteraf wordt er niets toegevoegd zonder overeenstemming."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is het steeds dezelfde chauffeur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Binnen een missie, ja. Bij een retainer wordt dezelfde vaste chauffeur voor uw agenda vrijgehouden, met één vertrouwde vervanger daarachter die gebriefd is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe discreet is discreet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Namen, routes en verzoeken blijven binnen het huis. Wij publiceren geen klantenlijsten, fotograferen geen passagiers en bespreken de ene missie niet met de andere — tenzij een opdrachtgever daar uitdrukkelijk mee heeft ingestemd."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat als de plannen op de dag zelf veranderen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Late wijzigingen worden verwacht in plaats van beboet. Eén nummer bereikt iemand die uw naam en de opdracht kent, en de dag wordt opnieuw om u heen ingedeeld."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Waar kunnen wij de concierge om vragen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kamers en suites, tafels, loges en besloten bezichtigingen, gasten die worden opgehaald en verzorgd, en de verzoeken die in geen enkele categorie passen. Gaat iets ons te boven, dan zeggen wij dat ronduit en wijzen wij u ergens beter heen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Boeken wij de hotels zelf?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dat mag, maar de meeste opdrachtgevers laten het aan ons. Waar wij namens u reserveren, treden wij op als tussenpersoon: het huis of restaurant sluit de overeenkomst met u, en hun annuleringsvoorwaarden gelden naast de onze."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wordt een reis ooit met anderen gedeeld?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nooit. Een reis wordt voor één gezelschap geschreven. Gezamenlijke ritten voor een kring van autoliefhebbers zijn de zaak van ons zusterhuis, Signature Drivers Club."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat als het weer een route afsluit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Elke reis wordt geschreven met alternatieven die al verkend zijn voor weer, afsluitingen en stemming. De dag wordt opnieuw ingedeeld zonder een gesprek over toeslagen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welke talen spreken uw chauffeurs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nederlands en Engels standaard. Frans, Duits, Spaans, Italiaans, Arabisch en Russisch op afspraak, mits tijdig aangekondigd."
+          }
+        }
+      ]
+    }

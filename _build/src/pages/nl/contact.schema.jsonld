@@ -1,0 +1,25 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact opnemen",
+          "item": "https://www.lohuissignature.nl/nl/contact.html"
+        }
+      ]
+    },
+    {
+      "@type": "ContactPage",
+      "url": "https://www.lohuissignature.nl/nl/contact.html",
+      "inLanguage": "nl",
+      "about": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      }
+    }

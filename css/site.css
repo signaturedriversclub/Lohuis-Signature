@@ -1415,3 +1415,18 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
   .s5, .s7 { letter-spacing: .2em; }
   .s7 { padding-left: 14px; padding-right: 14px; }
 }
+
+/* --------------------------------------------------------------------------
+   LANGUAGE SWITCH
+   Both labels always show in the same order, so the pair does not jump when
+   the visitor uses it. The current language is marked and inert; the other is
+   the link. Pages with no counterpart in the other language — terms, privacy —
+   point at that language's homepage rather than at nothing.
+   -------------------------------------------------------------------------- */
+.s257{display:inline-flex;align-items:center;gap:8px;flex-shrink:0;font-size:10.5px;
+      letter-spacing:.28em;text-transform:uppercase;font-weight:500;padding:8px 0;white-space:nowrap}
+.s258{color:inherit;opacity:.5;transition:opacity .4s ease}
+.s258:hover,.s258:focus-visible{opacity:1}
+.s259{opacity:1}
+.s260{opacity:.3}
+@media (min-width:901px) and (max-width:1023px){.s257{letter-spacing:.2em}}

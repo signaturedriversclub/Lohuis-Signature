@@ -1,0 +1,28 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The House",
+          "item": "https://www.lohuissignature.nl/the-house.html"
+        }
+      ]
+    },
+    {
+      "@type": "AboutPage",
+      "url": "https://www.lohuissignature.nl/the-house.html",
+      "name": "About Lohuis Signature",
+      "about": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://www.lohuissignature.nl/#lowi-lohuis"
+      }
+    }

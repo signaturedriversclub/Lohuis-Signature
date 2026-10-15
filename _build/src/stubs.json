@@ -1,0 +1,86 @@
+{
+  "about": {
+    "kind": "moved",
+    "target": "the-house.html",
+    "canonical": "https://www.lohuissignature.nl/the-house.html",
+    "label": "Continue to The House"
+  },
+  "about-us": {
+    "kind": "moved",
+    "target": "the-house.html",
+    "canonical": "https://www.lohuissignature.nl/the-house.html",
+    "label": "Continue to The House"
+  },
+  "chauffeur-services": {
+    "kind": "moved",
+    "target": "chauffeur.html",
+    "canonical": "https://www.lohuissignature.nl/chauffeur.html",
+    "label": "Continue to The Chauffeur"
+  },
+  "concierge-services": {
+    "kind": "moved",
+    "target": "concierge.html",
+    "canonical": "https://www.lohuissignature.nl/concierge.html",
+    "label": "Continue to The Concierge"
+  },
+  "contact-us": {
+    "kind": "moved",
+    "target": "contact.html",
+    "canonical": "https://www.lohuissignature.nl/contact.html",
+    "label": "Continue to Request contact"
+  },
+  "faq-1": {
+    "kind": "moved",
+    "target": "faq.html",
+    "canonical": "https://www.lohuissignature.nl/faq.html",
+    "label": "Continue to Questions"
+  },
+  "home": {
+    "kind": "moved",
+    "target": "index.html",
+    "canonical": "https://www.lohuissignature.nl/",
+    "label": "Continue to Lohuis Signature"
+  },
+  "insights": {
+    "kind": "moved",
+    "target": "./",
+    "canonical": "https://www.lohuissignature.nl/",
+    "label": "Continue to the homepage"
+  },
+  "privacy-policy": {
+    "kind": "moved",
+    "target": "privacy.html",
+    "canonical": "https://www.lohuissignature.nl/privacy.html",
+    "label": "Continue to Privacy"
+  },
+  "travel-services": {
+    "kind": "moved",
+    "target": "journey.html",
+    "canonical": "https://www.lohuissignature.nl/journey.html",
+    "label": "Continue to The Journey"
+  },
+  "amsterdam-chauffeur": {
+    "kind": "vanity",
+    "target": "chauffeur.html",
+    "canonical": "https://www.lohuissignature.nl/chauffeur.html",
+    "label": "Continue to The Chauffeur"
+  },
+  "roadshow": {
+    "kind": "vanity",
+    "target": "chauffeur.html",
+    "canonical": "https://www.lohuissignature.nl/chauffeur.html",
+    "label": "Continue to The Chauffeur"
+  },
+  "schiphol-chauffeur": {
+    "kind": "vanity",
+    "target": "chauffeur.html",
+    "canonical": "https://www.lohuissignature.nl/chauffeur.html",
+    "label": "Continue to The Chauffeur"
+  },
+  "wedding-car": {
+    "kind": "vanity",
+    "target": "fleet.html",
+    "canonical": "https://www.lohuissignature.nl/fleet.html",
+    "label": "Continue to The Fleet"
+  }
+}

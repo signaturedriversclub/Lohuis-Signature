@@ -1,0 +1,118 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Questions",
+          "item": "https://www.lohuissignature.nl/faq.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How far ahead should we ask?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A day is often enough for a transfer. Multi-day assignments, journeys and anything involving a particular car are better placed weeks ahead — we hold a limited number of commissions at a time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do you work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "From Aalsmeer across the Netherlands — most often Amsterdam, The Hague and the addresses between them — and by road throughout continental Europe. Journeys regularly run into Belgium, Germany, France, Switzerland and Italy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you drive our own car?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our chauffeurs are used to collection and marque cars, and the vehicle is returned exactly as it left. Handover is arranged at the residence or office."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is a commission priced?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Against the day rather than the distance. Vehicle, chauffeur, timings and cost arrive in one written proposal, amended until it is right. Nothing is added afterwards without agreement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will it be the same chauffeur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Within a commission, yes. Across a retainer, the same named chauffeur is held against your diary, with one familiar alternate briefed behind them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How discreet is discreet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Names, routes and requests stay inside the house. We do not publish client lists, photograph passengers, or discuss one commission with another — unless a client has specifically agreed otherwise."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if plans change on the day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Late changes are expected rather than penalised. One number reaches someone who knows your name and the brief, and the day is re-cut around you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can we ask the concierge for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rooms and suites, tables, boxes and private views, guests met and looked after, and the requests that fit no category. If it sits beyond us we say so plainly and point you somewhere better."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do we book the hotels ourselves?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You may, but most clients let us. Where we reserve on your behalf we act as agent: the house or restaurant contracts with you, and their cancellation terms apply alongside ours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a journey ever shared with others?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Never. A journey is written for one party. Shared drives for a circle of motoring enthusiasts are the business of our sibling house, Signature Drivers Club."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if weather closes a route?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every journey is written with alternatives already reconnoitred for weather, closures and mood. The day is re-cut without a conversation about surcharges."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which languages do your chauffeurs speak?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dutch and English as standard. French, German, Spanish, Italian, Arabic and Russian by arrangement, given notice."
+          }
+        }
+      ]
+    }
