@@ -6,4 +6,9 @@ Allow: /
 # the repository, so they are excluded here rather than hidden.
 Disallow: /_build/
 
+# The terms PDF is the copy attached to proposals. It is the same text as
+# /terms.html and /nl/terms.html, so it is here to be linked and downloaded,
+# not to compete with those pages in search.
+Disallow: /pdf/
+
 Sitemap: https://www.lohuissignature.nl/sitemap.xml
