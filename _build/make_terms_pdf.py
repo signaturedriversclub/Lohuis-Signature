@@ -41,11 +41,27 @@ def read_terms(lang):
     title = plain(re.search(r'<h1 class="s240">(.*?)</h1>', src, re.S).group(1))
     lede = plain(re.search(r'<p data-rv="1" class="s242">(.*?)</p>', src, re.S).group(1))
     sections = []
-    for block in re.findall(r'<div data-rv="1" data-rv-d="\d+" class="s24[36]">(.*?)</div>',
+    for block in re.findall(r'<div data-rv="1" data-rv-d="\d+" class="s24[36]">(.*?)\n        </div>',
                             src, re.S):
         head = plain(re.search(r"<h2[^>]*>(.*?)</h2>", block, re.S).group(1))
-        paras = [plain(p) for p in re.findall(r'<p class="s245">(.*?)</p>', block, re.S)]
-        sections.append((head, paras))
+        blocks = []
+        # keep paragraphs, the table and the table note in the order they appear
+        for m in re.finditer(r'<p class="s245">(.*?)</p>|<table class="s261">(.*?)</table>|'
+                             r'<p class="s262">(.*?)</p>', block, re.S):
+            if m.group(1) is not None:
+                blocks.append(("p", plain(m.group(1))))
+            elif m.group(2) is not None:
+                tbl = m.group(2)
+                head_cells = [plain(c) for c in re.findall(r'<th scope="col">(.*?)</th>', tbl, re.S)]
+                rows = []
+                for tr in re.findall(r"<tr>(?!<th scope=\"col\")(.*?)</tr>", tbl, re.S):
+                    cells = [plain(c) for c in re.findall(r"<t[hd][^>]*>(.*?)</t[hd]>", tr, re.S)]
+                    if cells:
+                        rows.append(cells)
+                blocks.append(("table", (head_cells, rows)))
+            else:
+                blocks.append(("note", plain(m.group(3))))
+        sections.append((head, blocks))
     return eyebrow, title, lede, sections
 
 
@@ -86,6 +102,16 @@ h2      { font-size:6.6pt; font-weight:500; letter-spacing:.26em;
           text-transform:uppercase; color:#6B655B; margin:0 0 3.5mm; }
 p       { margin:0 0 2.8mm; }
 p:last-child { margin-bottom:0; }
+
+table   { width:100%; border-collapse:collapse; margin:3.5mm 0 0; font-size:8pt; }
+th, td  { text-align:left; padding:2.4mm 4mm 2.4mm 0; vertical-align:top;
+          border-bottom:.4pt solid #DCD5C8; }
+thead th{ font-size:5.8pt; letter-spacing:.2em; text-transform:uppercase;
+          font-weight:500; color:#6B655B; padding-bottom:1.8mm; }
+tbody th{ font-weight:400; color:#141311; padding-right:7mm; }
+tbody td{ color:#403F3B; }
+tbody tr:last-child th, tbody tr:last-child td { border-bottom:0; }
+.note   { margin:2.6mm 0 0; font-size:7.6pt; color:#6B655B; }
 """
 
 PAGE = """<!doctype html><html lang="{lang}"><head><meta charset="utf-8">
@@ -102,10 +128,26 @@ def build(lang):
     eyebrow, title, lede, sections = read_terms(lang)
     css = (CSS.replace("FONTDIR", "file://" + os.path.join(ROOT, "fonts"))
               .replace("FOOTER", FOOT[lang].replace('"', "'")))
-    body = "\n".join(
-        "<section><h2>%s</h2>%s</section>"
-        % (H.escape(h), "".join("<p>%s</p>" % H.escape(p) for p in ps))
-        for h, ps in sections)
+    def render(blocks):
+        out = []
+        for kind, payload in blocks:
+            if kind == "p":
+                out.append("<p>%s</p>" % H.escape(payload))
+            elif kind == "note":
+                out.append('<p class="note">%s</p>' % H.escape(payload))
+            else:
+                cols, rows = payload
+                head = "".join("<th>%s</th>" % H.escape(c) for c in cols)
+                body = "".join(
+                    "<tr><th>%s</th>%s</tr>"
+                    % (H.escape(r[0]), "".join("<td>%s</td>" % H.escape(c) for c in r[1:]))
+                    for r in rows)
+                out.append("<table><thead><tr>%s</tr></thead><tbody>%s</tbody></table>"
+                           % (head, body))
+        return "".join(out)
+
+    body = "\n".join("<section><h2>%s</h2>%s</section>" % (H.escape(h), render(bl))
+                     for h, bl in sections)
     return PAGE.format(lang=lang, css=css, eyebrow=H.escape(eyebrow),
                        title=H.escape(title), lede=H.escape(lede), sections=body,
                        mark="file://" + os.path.join(ROOT, "images", "brand",
