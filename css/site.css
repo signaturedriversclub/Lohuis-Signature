@@ -1443,3 +1443,35 @@ nav[data-ls-nav]::-webkit-scrollbar { display: none; width: 0; height: 0; }
 .s259{opacity:1}
 .s260{opacity:.3}
 @media (min-width:901px) and (max-width:1023px){.s257{letter-spacing:.2em}}
+
+/* --------------------------------------------------------------------------
+   CANCELLATION TABLE
+   Four categories against three notice bands. Hairlines only, no fills: the
+   page already has a rhythm and a shaded table would fight it. On a narrow
+   screen the columns would crush, so below 700px each row restacks with its
+   band labelled inline.
+   -------------------------------------------------------------------------- */
+.s261{width:100%;border-collapse:collapse;margin:26px 0 0;font-size:14px;line-height:1.6}
+.s261 th,.s261 td{text-align:left;padding:13px 16px 13px 0;vertical-align:top;
+                  border-bottom:1px solid var(--line)}
+.s261 thead th{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;
+               font-weight:500;color:var(--accent);padding-bottom:10px}
+.s261 tbody th{font-weight:400;color:var(--ink);padding-right:28px}
+.s261 td{color:var(--ink2)}
+.s261 tbody tr:last-child th,.s261 tbody tr:last-child td{border-bottom:0}
+.s262{margin:14px 0 0;font-size:13.5px;color:var(--accent)}
+
+/* The table interrupts the .s245 + .s245 rhythm, so hand the chain back. */
+.s262 + .s245,.s261 + .s245{margin-top:26px}
+
+@media (max-width:700px){
+  .s261,.s261 tbody,.s261 tr,.s261 th,.s261 td{display:block;width:100%}
+  .s261 thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .s261 tbody tr{padding:14px 0;border-bottom:1px solid var(--line)}
+  .s261 tbody tr:last-child{border-bottom:0}
+  .s261 th,.s261 td{border-bottom:0;padding:0}
+  .s261 tbody th{margin-bottom:7px}
+  .s261 td{padding-left:0}
+  .s261 td::before{content:attr(data-band) " — ";color:var(--accent);
+                   font-size:9.5px;letter-spacing:.2em;text-transform:uppercase}
+}
