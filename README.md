@@ -51,8 +51,7 @@ faq-1.html                →  faq.html
 privacy-policy.html       →  privacy.html
 insights.html             →  index.html
 
-schiphol-chauffeur.html   →  chauffeur.html      short addresses to hand out
-amsterdam-chauffeur.html  →  chauffeur.html
+amsterdam-chauffeur.html  →  chauffeur.html      short addresses to hand out
 roadshow.html             →  chauffeur.html
 wedding-car.html          →  fleet.html
 ```
@@ -64,10 +63,12 @@ print, advertising or the telephone.
 Each stub carries a `canonical` tag pointing at its destination, which is what
 stops it competing with the real page — **and also what stops it ranking on its
 own.** They are a convenience, not a source of search traffic. Ranking for
-*schiphol chauffeur* or *wedding car* needs real pages with real content on them.
+*amsterdam chauffeur* or *wedding car* needs real pages with real content on them.
+`schiphol-chauffeur.html` was one of these stubs and is now such a page, in both
+languages.
 
-GitHub Pages serves these without the extension too, so `/schiphol-chauffeur`
-works as well as `/schiphol-chauffeur.html`.
+GitHub Pages serves these without the extension too, so `/wedding-car`
+works as well as `/wedding-car.html`.
 
 Every page carries its own address (`https://www.lohuissignature.nl/…`) in a
 `canonical` tag, so search engines know which domain is the real one. If the
