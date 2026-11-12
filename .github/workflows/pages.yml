@@ -1,0 +1,54 @@
+# Publishes the site to GitHub Pages.
+#
+# GitHub Pages used to serve this repository as it stands, which put the
+# working files on the public domain alongside the pages: README.md, the
+# _build/ sources and the editor settings. This copies the site into a clean
+# folder first and leaves those behind, so only what a visitor should reach is
+# published.
+#
+# It needs one setting on GitHub: Settings -> Pages -> Source: "GitHub Actions".
+# The custom domain is held in that same settings page.
+name: Publish site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # Everything is copied except the files named here. To keep another
+      # working file off the public site, add a line for it.
+      - name: Collect the public files
+        run: |
+          rsync -a ./ _site/ \
+            --exclude '/_site/' \
+            --exclude '/.git/' \
+            --exclude '/.github/' \
+            --exclude '/.claude/' \
+            --exclude '/.gitignore' \
+            --exclude '/_build/' \
+            --exclude '/README.md'
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4

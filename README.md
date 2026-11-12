@@ -1,7 +1,8 @@
 # Lohuis Signature — website
 
 The Lohuis Signature website: plain HTML, CSS and JavaScript, with no build step.
-Every file in this repository is served to the visitor exactly as it is stored here.
+The pages are served to the visitor exactly as they are stored here; the working
+files beside them (this README, `_build/`) are left out when the site is published.
 
 ---
 
@@ -77,11 +78,14 @@ three places to update.
 
 ## Publishing it
 
-The site is designed to be served straight from the `main` branch:
+The site is published from the `main` branch by `.github/workflows/pages.yml`.
+Every push to `main` copies the site into a clean folder and publishes that,
+leaving the working files behind: this README, `_build/`, `.claude/` and
+`.gitignore` are not on the public domain. To keep another working file off the
+site, add a line for it in that workflow.
 
 1. On GitHub, open **Settings → Pages**.
-2. Under *Build and deployment*, set **Source** to *Deploy from a branch*.
-3. Choose branch **main** and folder **/ (root)**, then **Save**.
+2. Under *Build and deployment*, set **Source** to *GitHub Actions*.
 
 Within a minute or two the site appears at
 `https://<your-username>.github.io/Lohuis-Signature/`.
