@@ -1,0 +1,90 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The Chauffeur",
+          "item": "https://www.lohuissignature.nl/chauffeur.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Chauffeur at Schiphol",
+          "item": "https://www.lohuissignature.nl/schiphol-chauffeur.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/schiphol-chauffeur.html#service",
+      "name": "Schiphol chauffeur service",
+      "description": "A chauffeur for arrivals and departures at Amsterdam Airport Schiphol. Flights are tracked, passengers are met inside the terminal, and travel continues to Amsterdam, The Hague or on into Europe.",
+      "serviceType": "Airport chauffeur service",
+      "url": "https://www.lohuissignature.nl/schiphol-chauffeur.html",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "Airport",
+          "name": "Amsterdam Airport Schiphol",
+          "iataCode": "AMS"
+        },
+        {
+          "@type": "Country",
+          "name": "Netherlands"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What happens if the flight is delayed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nothing changes at your end. Flights are tracked from the house, the chauffeur's timing moves with the aircraft, and a back-up chauffeur is held ready in case a long delay runs into the next commitment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does the chauffeur meet us at Schiphol?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Inside the terminal, not at a kerb. The exact meeting point is written into the proposal, and the chauffeur's name and number reach you before you fly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long will the chauffeur wait?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sixty minutes of waiting time run from touchdown. If passport control or baggage takes longer, tell us on the one number and the car is held."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How far ahead should a Schiphol transfer be arranged?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A day is usually enough. A particular car, a larger party or a delegation is better placed further ahead, because we hold a limited number of commissions at a time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is a Schiphol transfer priced?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Against the day rather than the distance. Vehicle, chauffeur, timings and cost arrive in one written proposal, and nothing is added afterwards without agreement."
+          }
+        }
+      ]
+    }

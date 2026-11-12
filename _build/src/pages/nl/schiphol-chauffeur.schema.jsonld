@@ -1,0 +1,90 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "De Chauffeur",
+          "item": "https://www.lohuissignature.nl/nl/chauffeur.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Chauffeur op Schiphol",
+          "item": "https://www.lohuissignature.nl/nl/schiphol-chauffeur.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/nl/schiphol-chauffeur.html#service",
+      "name": "Chauffeurservice Schiphol",
+      "description": "Chauffeur voor aankomst en vertrek op Amsterdam Airport Schiphol. Vluchten worden gevolgd, u wordt in de terminal opgewacht en reist door naar Amsterdam, Den Haag of verder Europa in.",
+      "serviceType": "Luchthavenvervoer met chauffeur",
+      "url": "https://www.lohuissignature.nl/nl/schiphol-chauffeur.html",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "Airport",
+          "name": "Amsterdam Airport Schiphol",
+          "iataCode": "AMS"
+        },
+        {
+          "@type": "Country",
+          "name": "Nederland"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wat gebeurt er als de vlucht vertraagd is?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aan uw kant verandert er niets. Vluchten worden vanuit het huis gevolgd, de chauffeur schuift mee met het toestel, en er staat een reservechauffeur gereed voor het geval een lange vertraging doorloopt in de volgende afspraak."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Waar wacht de chauffeur ons op Schiphol op?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In de terminal, niet langs de stoep. Het precieze ontmoetingspunt staat in het voorstel, en de naam en het nummer van de chauffeur bereiken u voordat u vliegt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe lang wacht de chauffeur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De wachttijd van zestig minuten gaat in vanaf de landing. Duurt de paspoortcontrole of de bagage langer, laat het ons dan weten op het ene nummer en de auto blijft staan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe ver van tevoren regelen wij een transfer naar Schiphol?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Een dag is doorgaans genoeg. Een bepaalde auto, een groter gezelschap of een delegatie kunt u beter verder vooruit plaatsen, omdat wij een beperkt aantal missies tegelijk aannemen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe wordt een transfer naar Schiphol geprijsd?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Naar de dag in plaats van naar de afstand. Auto, chauffeur, tijden en kosten komen in één schriftelijk voorstel, en achteraf wordt er niets toegevoegd zonder overeenstemming."
+          }
+        }
+      ]
+    }

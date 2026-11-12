@@ -71,12 +71,6 @@
     "canonical": "https://www.lohuissignature.nl/chauffeur.html",
     "label": "Continue to The Chauffeur"
   },
-  "schiphol-chauffeur": {
-    "kind": "vanity",
-    "target": "chauffeur.html",
-    "canonical": "https://www.lohuissignature.nl/chauffeur.html",
-    "label": "Continue to The Chauffeur"
-  },
   "wedding-car": {
     "kind": "vanity",
     "target": "fleet.html",

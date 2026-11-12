@@ -25,7 +25,8 @@ CHILDREN = ["chauffeur", "concierge", "journey", "retainer"]
 # Terms and privacy stay English-only for now, so Dutch pages must not claim an
 # hreflang="nl" for them: a hreflang pointing at a page that does not exist is
 # worse than none at all.
-PAGES = ["index", "commissions", "chauffeur", "concierge", "journey", "retainer",
+PAGES = ["index", "commissions", "chauffeur", "schiphol-chauffeur", "concierge",
+         "journey", "retainer",
          "fleet", "the-house", "contact", "enquire", "faq", "privacy", "terms"]
 ENGLISH_ONLY = set()   # both legal pages now exist in both languages
 
