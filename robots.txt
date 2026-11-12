@@ -1,11 +1,6 @@
 User-agent: *
 Allow: /
 
-# The page sources live in _build/. They are fragments, not pages: no doctype,
-# no head, nothing a visitor should land on. GitHub Pages serves every file in
-# the repository, so they are excluded here rather than hidden.
-Disallow: /_build/
-
 # The terms PDF is the copy attached to proposals. It is the same text as
 # /terms.html and /nl/terms.html, so it is here to be linked and downloaded,
 # not to compete with those pages in search.
