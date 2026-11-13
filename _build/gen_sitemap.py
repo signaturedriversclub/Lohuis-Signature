@@ -16,7 +16,8 @@ import datetime, json, os, subprocess, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC  = os.path.join(ROOT, "_build", "src")
 BASE = "https://www.lohuissignature.nl/"
-PAGES = ["index", "commissions", "chauffeur", "schiphol-chauffeur", "concierge",
+PAGES = ["index", "commissions", "chauffeur", "schiphol-chauffeur", "directiechauffeur",
+         "concierge",
          "journey", "retainer",
          "fleet", "the-house", "contact", "enquire", "faq", "privacy", "terms"]
 LANGS = {"en": "", "nl": "nl/"}
