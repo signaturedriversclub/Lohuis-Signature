@@ -31,8 +31,57 @@
           "name": "Netherlands"
         },
         {
+          "@type": "City",
+          "name": "Amsterdam"
+        },
+        {
           "@type": "Place",
           "name": "Europe"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this a private concierge service in Amsterdam?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The house is in Aalsmeer, minutes from Schiphol, and works most often in Amsterdam and The Hague. The same concierge follows the itinerary abroad, so a request that begins in Amsterdam does not change hands when it leaves."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can we ask the concierge for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rooms and suites, tables, boxes and private views, guests met and looked after, and the requests that fit no category. If it sits beyond us we say so plainly and point you somewhere better."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do we need a chauffeur commission first?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The Concierge usually grows out of a chauffeur commission, but it can be taken on its own, for a single occasion or held month to month."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How discreet is the concierge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Names, routes and requests stay inside the house. We do not publish client lists, photograph passengers, or discuss one commission with another, unless a client has specifically agreed otherwise."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "At what hours can the concierge be reached?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At any hour. The telephone is answered by someone who is awake and able to act, and one person holds your dossier throughout."
+          }
         }
       ]
     }

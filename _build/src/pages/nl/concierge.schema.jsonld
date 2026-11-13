@@ -32,8 +32,57 @@
           "name": "Nederland"
         },
         {
+          "@type": "City",
+          "name": "Amsterdam"
+        },
+        {
           "@type": "Place",
           "name": "Europa"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is dit een privéconcierge in Amsterdam?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Het huis staat in Aalsmeer, op enkele minuten van Schiphol, en werkt het vaakst in Amsterdam en Den Haag. Dezelfde concierge volgt het reisschema naar het buitenland, zodat een verzoek dat in Amsterdam begint niet van hand wisselt wanneer het de stad verlaat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Waar kunnen wij de concierge om vragen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kamers en suites, tafels, loges en besloten bezichtigingen, gasten die worden opgehaald en verzorgd, en de verzoeken die in geen enkele categorie passen. Gaat iets ons te boven, dan zeggen wij dat ronduit en wijzen wij u ergens beter heen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is eerst een chauffeursmissie nodig?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee. De Concierge komt meestal voort uit een chauffeursmissie, maar kan op zichzelf worden afgenomen, voor één gelegenheid of van maand tot maand."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe discreet is de concierge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Namen, routes en verzoeken blijven binnen het huis. Wij publiceren geen klantenlijsten, fotograferen geen passagiers en bespreken de ene missie niet met de andere, tenzij een opdrachtgever daar uitdrukkelijk mee heeft ingestemd."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Op welke uren is de concierge bereikbaar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Op elk uur. De telefoon wordt beantwoord door iemand die wakker is en kan handelen, en één persoon beheert uw dossier van begin tot eind."
+          }
         }
       ]
     }
