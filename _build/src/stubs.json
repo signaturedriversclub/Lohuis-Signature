@@ -76,5 +76,11 @@
     "target": "fleet.html",
     "canonical": "https://www.lohuissignature.nl/fleet.html",
     "label": "Continue to The Fleet"
+  },
+  "directiechauffeur": {
+    "kind": "vanity",
+    "target": "nl/directiechauffeur.html",
+    "canonical": "https://www.lohuissignature.nl/nl/directiechauffeur.html",
+    "label": "Verder naar Directiechauffeur"
   }
 }

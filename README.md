@@ -52,6 +52,7 @@ privacy-policy.html       →  privacy.html
 insights.html             →  index.html
 
 amsterdam-chauffeur.html  →  chauffeur.html      short addresses to hand out
+directiechauffeur.html    →  nl/directiechauffeur.html   (the page is Dutch only)
 roadshow.html             →  chauffeur.html
 wedding-car.html          →  fleet.html
 ```
