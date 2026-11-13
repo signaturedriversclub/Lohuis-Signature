@@ -102,9 +102,10 @@ and the bare `lohuissignature.nl` issues a 301 to the `www` form at the
 registrar, which is exactly right: one address serves the site, the other points
 at it, and every page's `canonical` tag agrees with both.
 
-**`lohuissignature.com` does not resolve at all.** Anyone typing it gets nothing.
-Either point it at the `.nl` with a 301 at the registrar, or stop giving it out —
-but a domain that silently fails is the worst of the three options.
+**`lohuistravels.nl` and `lohuistravels.com` forward here.** Both are older names
+for the house and issue a 301 to `lohuissignature.nl` at the registrar, with and
+without `www`. `lohuissignature.com` is not ours and does not exist; do not hand
+it out.
 
 **GitHub Pages accepts only one custom domain**, so any second domain has to
 redirect from the registrar rather than from here. This matters beyond tidiness:
