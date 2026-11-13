@@ -25,7 +25,8 @@ CHILDREN = ["chauffeur", "concierge", "journey", "retainer"]
 # Terms and privacy stay English-only for now, so Dutch pages must not claim an
 # hreflang="nl" for them: a hreflang pointing at a page that does not exist is
 # worse than none at all.
-PAGES = ["index", "commissions", "chauffeur", "schiphol-chauffeur", "concierge",
+PAGES = ["index", "commissions", "chauffeur", "schiphol-chauffeur", "directiechauffeur",
+         "concierge",
          "journey", "retainer",
          "fleet", "the-house", "contact", "enquire", "faq", "privacy", "terms"]
 ENGLISH_ONLY = set()   # both legal pages now exist in both languages
@@ -79,12 +80,15 @@ def out_path(lang, page):
 
 def hreflang_block(slug):
     """Alternates for one page. x-default is English: it is the fallback for
-    visitors who match neither language, not a statement about which matters."""
+    visitors who match neither language, not a statement about which matters.
+    A page that exists in one language only - directiechauffeur is Dutch only,
+    the word has no English page to match - points x-default at itself rather
+    than at an English address that does not exist."""
     langs = [l for l in ("en", "nl") if exists(l, slug)]
     lines = ['<link rel="alternate" hreflang="%s" href="%s">' % (l, url_for(l, slug))
              for l in langs]
     lines.append('<link rel="alternate" hreflang="x-default" href="%s">'
-                 % url_for("en", slug))
+                 % url_for("en" if "en" in langs else langs[0], slug))
     return "\n".join(lines)
 
 

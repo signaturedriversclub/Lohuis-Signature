@@ -1,0 +1,105 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "De Chauffeur",
+          "item": "https://www.lohuissignature.nl/nl/chauffeur.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Directiechauffeur",
+          "item": "https://www.lohuissignature.nl/nl/directiechauffeur.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/nl/directiechauffeur.html#service",
+      "name": "Directiechauffeur",
+      "description": "Een directiechauffeur voor een dag, een roadshow of als vaste chauffeur, in een gereedgemaakte auto of in de auto van de opdrachtgever.",
+      "serviceType": "Directiechauffeur",
+      "url": "https://www.lohuissignature.nl/nl/directiechauffeur.html",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Nederland"
+        },
+        {
+          "@type": "City",
+          "name": "Amsterdam"
+        },
+        {
+          "@type": "City",
+          "name": "Den Haag"
+        },
+        {
+          "@type": "Place",
+          "name": "Europa"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wat doet een directiechauffeur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Een directiechauffeur rijdt bestuurders en directieleden en neemt hun het vervoer volledig uit handen: de route, de tijd, het parkeren en het wachten. Het verschil met een taxi of een losse rit is dat de chauffeur de dag en de mensen vooraf kent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kunnen wij een directiechauffeur voor één dag huren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Laat het ons bij voorkeur een dag van tevoren weten. Een roadshow of een bezoek met meerdere auto's vraagt meer voorbereiding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wanneer is een vaste directiechauffeur verstandiger dan losse dagen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zodra u merkt dat u elke week hetzelfde opnieuw uitlegt. Een vaste chauffeur kent de adressen, de voorkeuren en de terugkerende afspraken al, en de auto staat alleen voor u klaar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Rijdt de chauffeur ook in onze eigen auto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, van elk merk. De auto blijft via uw eigen polis verzekerd voor het rijden. Kleine schade die de chauffeur buiten het rijden om veroorzaakt, bijvoorbeeld bij het in- en uitladen, nemen wij voor onze rekening."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe weten wij wie er achter het stuur zit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nog vóór wij een naam voorstellen is de chauffeur gescreend: een VOG, referenties en een getekende geheimhoudingsverklaring. Het rijden zelf is geschoold op CCV-D1 of CCV-D2."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat kost een directiechauffeur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De prijs hangt af van de dag, de auto en de duur, niet van het aantal kilometers. U krijgt vooraf één schriftelijk voorstel, en zonder uw akkoord komt daar later niets bij."
+          }
+        }
+      ]
+    }
