@@ -1,0 +1,89 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The Chauffeur",
+          "item": "https://www.lohuissignature.nl/chauffeur.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Roadshows",
+          "item": "https://www.lohuissignature.nl/roadshow.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/roadshow.html#service",
+      "name": "Roadshow chauffeur service",
+      "description": "A chauffeur for roadshows: several meetings in a day or several cities in a week, one chauffeur throughout. Across the Netherlands, Belgium and Germany.",
+      "serviceType": "Roadshow chauffeur service",
+      "url": "https://www.lohuissignature.nl/roadshow.html",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Netherlands"
+        },
+        {
+          "@type": "Country",
+          "name": "Belgium"
+        },
+        {
+          "@type": "Country",
+          "name": "Germany"
+        },
+        {
+          "@type": "Place",
+          "name": "Europe"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Will it be the same chauffeur for the whole roadshow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. One chauffeur stays with the commission from the first day to the last, and knows the schedule before it starts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if a meeting runs over?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The car waits. Each leg is timed with room to spare, and the next appointment is re-timed with you if it needs to be."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the roadshow go abroad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, by road through Belgium, Germany, France, Switzerland and Italy. On longer trips the chauffeur stays in a hotel nearby."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is a roadshow priced?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By the day rather than the distance. The full cost is in the written proposal before the first day, and nothing is added without your agreement."
+          }
+        }
+      ]
+    }

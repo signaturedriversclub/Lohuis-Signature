@@ -62,4 +62,41 @@
           "description": "Seats up to 19. Whole teams and visiting delegations on one timetable."
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can we ask for a particular car?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, by model or by tier. A particular car is best asked for well ahead, and the proposal states which car will come."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mercedes-Benz or BMW?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Either, as you prefer. The principal and everyday cars come from both makers, and the proposal says which."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a car for a wedding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The S-Class and 7 Series suit a wedding well, and the Rolls-Royce Ghost and Bentley Flying Spur are arranged on request. More on the wedding car."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if the car we want is not here?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We arrange it. The fleet is kept small on purpose, and anything outside it is sourced for the commission."
+          }
+        }
+      ]
     }

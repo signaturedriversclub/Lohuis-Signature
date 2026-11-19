@@ -1,0 +1,89 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "De Chauffeur",
+          "item": "https://www.lohuissignature.nl/nl/chauffeur.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Roadshows",
+          "item": "https://www.lohuissignature.nl/nl/roadshow.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/nl/roadshow.html#service",
+      "name": "Chauffeur voor roadshows",
+      "description": "Een chauffeur voor roadshows: meerdere afspraken op een dag of meerdere steden in een week, met één chauffeur. Door Nederland, België en Duitsland.",
+      "serviceType": "Chauffeur voor roadshows",
+      "url": "https://www.lohuissignature.nl/nl/roadshow.html",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Nederland"
+        },
+        {
+          "@type": "Country",
+          "name": "België"
+        },
+        {
+          "@type": "Country",
+          "name": "Duitsland"
+        },
+        {
+          "@type": "Place",
+          "name": "Europa"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is het de hele roadshow dezelfde chauffeur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Eén chauffeur blijft van de eerste tot de laatste dag bij de opdracht en kent het schema voordat het begint."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat als een afspraak uitloopt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dan wacht de auto. Elk traject heeft ruimte, en de volgende afspraak wordt zo nodig met u opnieuw getimed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan de roadshow naar het buitenland?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, over de weg door België, Duitsland, Frankrijk, Zwitserland en Italië. Bij langere reizen overnacht de chauffeur in een hotel in de buurt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe wordt een roadshow geprijsd?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Per dag en niet naar de afstand. De volledige kosten staan vóór de eerste dag in het schriftelijke voorstel, en zonder uw akkoord komt er niets bij."
+          }
+        }
+      ]
+    }

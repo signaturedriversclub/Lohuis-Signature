@@ -59,24 +59,6 @@
     "canonical": "https://www.lohuissignature.nl/journey.html",
     "label": "Continue to The Journey"
   },
-  "amsterdam-chauffeur": {
-    "kind": "vanity",
-    "target": "chauffeur.html",
-    "canonical": "https://www.lohuissignature.nl/chauffeur.html",
-    "label": "Continue to The Chauffeur"
-  },
-  "roadshow": {
-    "kind": "vanity",
-    "target": "chauffeur.html",
-    "canonical": "https://www.lohuissignature.nl/chauffeur.html",
-    "label": "Continue to The Chauffeur"
-  },
-  "wedding-car": {
-    "kind": "vanity",
-    "target": "fleet.html",
-    "canonical": "https://www.lohuissignature.nl/fleet.html",
-    "label": "Continue to The Fleet"
-  },
   "directiechauffeur": {
     "kind": "vanity",
     "target": "nl/directiechauffeur.html",

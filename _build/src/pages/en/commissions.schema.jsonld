@@ -14,4 +14,41 @@
           "item": "https://www.lohuissignature.nl/commissions.html"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is a commission placed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "With a conversation, by telephone, email or WhatsApp. A written proposal follows with the car, the chauffeur, the timings and the cost, and changes until it is right."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a commission be for a single day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Chauffeur and The Concierge are taken for one occasion as readily as for longer. The Journey and The Retainer are longer by nature."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work outside the Netherlands?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, by road throughout continental Europe. Belgium, Germany, France, Switzerland and Italy are where the work goes most often."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who answers on the day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The person who wrote the proposal, or someone beside them who knows the brief. There is one number, answered at any hour."
+          }
+        }
+      ]
     }

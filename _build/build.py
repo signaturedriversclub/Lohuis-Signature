@@ -26,9 +26,10 @@ CHILDREN = ["chauffeur", "concierge", "journey", "retainer"]
 # hreflang="nl" for them: a hreflang pointing at a page that does not exist is
 # worse than none at all.
 PAGES = ["index", "commissions", "chauffeur", "schiphol-chauffeur", "directiechauffeur",
+         "amsterdam-chauffeur", "roadshow",
          "concierge",
          "journey", "retainer",
-         "fleet", "the-house", "contact", "enquire", "faq", "privacy", "terms"]
+         "fleet", "wedding-car", "the-house", "contact", "enquire", "faq", "privacy", "terms"]
 ENGLISH_ONLY = set()   # both legal pages now exist in both languages
 
 LANGS = {
@@ -48,7 +49,8 @@ LANGS = {
 SLUGS = {
     "en": {},
     "nl": {"commissions": "missies", "journey": "reis", "fleet": "wagenpark",
-           "the-house": "het-huis", "enquire": "aanvragen"},
+           "the-house": "het-huis", "enquire": "aanvragen",
+           "amsterdam-chauffeur": "chauffeur-amsterdam", "wedding-car": "trouwauto"},
 }
 
 

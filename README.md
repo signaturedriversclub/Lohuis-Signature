@@ -51,10 +51,7 @@ faq-1.html                →  faq.html
 privacy-policy.html       →  privacy.html
 insights.html             →  index.html
 
-amsterdam-chauffeur.html  →  chauffeur.html      short addresses to hand out
-directiechauffeur.html    →  nl/directiechauffeur.html   (the page is Dutch only)
-roadshow.html             →  chauffeur.html
-wedding-car.html          →  fleet.html
+directiechauffeur.html    →  nl/directiechauffeur.html   short address; the page is Dutch only
 ```
 
 The first group exists because the old Squarespace site used those addresses and
@@ -65,11 +62,13 @@ Each stub carries a `canonical` tag pointing at its destination, which is what
 stops it competing with the real page — **and also what stops it ranking on its
 own.** They are a convenience, not a source of search traffic. Ranking for
 *amsterdam chauffeur* or *wedding car* needs real pages with real content on them.
-`schiphol-chauffeur.html` was one of these stubs and is now such a page, in both
-languages.
+`schiphol-chauffeur.html`, `amsterdam-chauffeur.html`, `roadshow.html` and
+`wedding-car.html` were stubs of this kind and are now such pages, in both
+languages (Dutch at `nl/schiphol-chauffeur.html`, `nl/chauffeur-amsterdam.html`,
+`nl/roadshow.html` and `nl/trouwauto.html`).
 
-GitHub Pages serves these without the extension too, so `/wedding-car`
-works as well as `/wedding-car.html`.
+GitHub Pages serves these without the extension too, so `/directiechauffeur`
+works as well as `/directiechauffeur.html`.
 
 Every page carries its own address (`https://www.lohuissignature.nl/…`) in a
 `canonical` tag, so search engines know which domain is the real one. If the
