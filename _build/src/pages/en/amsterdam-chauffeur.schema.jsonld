@@ -1,0 +1,81 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The Chauffeur",
+          "item": "https://www.lohuissignature.nl/chauffeur.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Chauffeur in Amsterdam",
+          "item": "https://www.lohuissignature.nl/amsterdam-chauffeur.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/amsterdam-chauffeur.html#service",
+      "name": "Chauffeur service in Amsterdam",
+      "description": "A private chauffeur in Amsterdam, by the hour, the day or a stay. Met at Schiphol, held between meetings, set down at the door. From Aalsmeer.",
+      "serviceType": "Chauffeur service in Amsterdam",
+      "url": "https://www.lohuissignature.nl/amsterdam-chauffeur.html",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Amsterdam"
+        },
+        {
+          "@type": "Place",
+          "name": "Amsterdam Airport Schiphol"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can we book a chauffeur in Amsterdam by the hour?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. An hour, an evening or a whole day are all arranged the same way, and on hourly work the chauffeur stays with the car."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where are you based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In Aalsmeer, a short drive south of Amsterdam and minutes from Schiphol, so the car is never far from the city or the airport."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the chauffeur drive our own car in Amsterdam?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Your car is collected from the residence or office, driven to the same standard, and returned as it left."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you arrange more than the car?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tables, rooms and guests are handled by the concierge, who works alongside the chauffeurs and holds the same itinerary."
+          }
+        }
+      ]
+    }

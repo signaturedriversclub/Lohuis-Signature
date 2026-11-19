@@ -1,0 +1,81 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "De Chauffeur",
+          "item": "https://www.lohuissignature.nl/nl/chauffeur.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Chauffeur in Amsterdam",
+          "item": "https://www.lohuissignature.nl/nl/chauffeur-amsterdam.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/nl/chauffeur-amsterdam.html#service",
+      "name": "Chauffeursdienst in Amsterdam",
+      "description": "Een privéchauffeur in Amsterdam, per uur, per dag of voor een verblijf. Opgewacht op Schiphol, beschikbaar tussen afspraken, afgezet voor de deur.",
+      "serviceType": "Chauffeursdienst in Amsterdam",
+      "url": "https://www.lohuissignature.nl/nl/chauffeur-amsterdam.html",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Amsterdam"
+        },
+        {
+          "@type": "Place",
+          "name": "Amsterdam Airport Schiphol"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kunnen wij in Amsterdam een chauffeur per uur boeken?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Een uur, een avond of een hele dag worden op dezelfde manier geregeld, en bij werk op uurbasis blijft de chauffeur bij de auto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Waar bent u gevestigd?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In Aalsmeer, op korte afstand ten zuiden van Amsterdam en op enkele minuten van Schiphol, zodat de auto nooit ver van de stad of de luchthaven is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan de chauffeur in Amsterdam onze eigen auto rijden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Uw auto wordt opgehaald op het woonadres of bij kantoor, volgens dezelfde maatstaf gereden en teruggebracht zoals hij vertrok."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kunt u meer regelen dan de auto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Tafels, kamers en gasten worden geregeld door de concierge, die naast de chauffeurs werkt en hetzelfde reisschema beheert."
+          }
+        }
+      ]
+    }

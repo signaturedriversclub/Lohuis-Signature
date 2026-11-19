@@ -14,4 +14,41 @@
           "item": "https://www.lohuissignature.nl/nl/missies.html"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hoe plaatst u een missie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Met een gesprek, per telefoon, e-mail of WhatsApp. Daarna volgt een schriftelijk voorstel met de auto, de chauffeur, de tijden en de kosten, dat wordt aangepast tot het klopt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan een missie ook voor één dag?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. De Chauffeur en De Concierge worden net zo goed voor één gelegenheid afgenomen als voor langer. De Reis en De Retainer zijn van nature langer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Werkt u ook buiten Nederland?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, over de weg door heel continentaal Europa. België, Duitsland, Frankrijk, Zwitserland en Italië komen het vaakst voor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie neemt er op de dag zelf op?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Degene die het voorstel schreef, of iemand naast hem of haar die de opdracht kent. Er is één nummer, op elk uur bereikbaar."
+          }
+        }
+      ]
     }

@@ -1,0 +1,93 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Het wagenpark",
+          "item": "https://www.lohuissignature.nl/nl/wagenpark.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "De trouwauto",
+          "item": "https://www.lohuissignature.nl/nl/trouwauto.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/nl/trouwauto.html#service",
+      "name": "Trouwauto met chauffeur",
+      "description": "Een trouwauto met chauffeur: een S-Klasse of 7 Serie, of op aanvraag een Rolls-Royce Ghost of Bentley Flying Spur. Gasten apart vervoerd.",
+      "serviceType": "Trouwauto met chauffeur",
+      "url": "https://www.lohuissignature.nl/nl/trouwauto.html",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Nederland"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Welke trouwauto's biedt u aan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Een Mercedes-Benz S-Klasse of BMW 7 Serie uit het wagenpark, of een Rolls-Royce Ghost of Bentley Flying Spur op aanvraag, alle met chauffeur. Ook uw eigen auto kan worden gereden."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wacht de chauffeur tijdens de ceremonie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. De auto blijft voor de deur of dichtbij staan en is klaar wanneer de ceremonie voorbij is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kunt u ook de gasten vervoeren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Een V-Klasse, een Sprinter of een minibus tot negentien personen brengt gasten tussen de plekken van de dag."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kunnen linten of bloemen worden geregeld?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Linten en bloemen op de auto kunnen worden geregeld; geef de kleuren en de stijl door bij uw aanvraag."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is er een minimale boekingsduur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Het minimum wordt besproken bij uw aanvraag, en hangt af van de auto en het verloop van de dag."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe ver vooruit moeten wij het regelen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zodra de datum vaststaat. De Ghost en de Bentley worden op tijdige aanvraag geregeld, en de details van de dag kunnen later volgen."
+          }
+        }
+      ]
+    }

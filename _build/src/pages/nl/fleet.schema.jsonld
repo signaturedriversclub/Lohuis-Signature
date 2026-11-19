@@ -63,4 +63,41 @@
         }
       ],
       "inLanguage": "nl"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kunnen wij om een bepaalde auto vragen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, per model of per rang. Een bepaalde auto vraagt u het best ruim vooraf, en het voorstel vermeldt welke auto komt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mercedes-Benz of BMW?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Beide, naar uw voorkeur. De voornaamste en de dagelijkse auto's komen van beide merken, en het voorstel zegt welke."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is er een auto voor een bruiloft?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. De S-Klasse en 7 Serie passen goed bij een bruiloft, en de Rolls-Royce Ghost en Bentley Flying Spur worden op aanvraag geregeld. Meer over de trouwauto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat als de auto die wij willen er niet bij staat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dan regelen wij hem. Het wagenpark is bewust klein gehouden, en wat er niet bij staat, wordt voor de opdracht geregeld."
+          }
+        }
+      ]
     }

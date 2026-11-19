@@ -1,0 +1,93 @@
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lohuissignature.nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The Fleet",
+          "item": "https://www.lohuissignature.nl/fleet.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The wedding car",
+          "item": "https://www.lohuissignature.nl/wedding-car.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.lohuissignature.nl/wedding-car.html#service",
+      "name": "Wedding car with chauffeur",
+      "description": "A wedding car with chauffeur: an S-Class or 7 Series, or a Rolls-Royce Ghost or Bentley Flying Spur on request. Guests moved alongside.",
+      "serviceType": "Wedding car with chauffeur",
+      "url": "https://www.lohuissignature.nl/wedding-car.html",
+      "provider": {
+        "@id": "https://www.lohuissignature.nl/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Netherlands"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which wedding cars do you offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Mercedes-Benz S-Class or BMW 7 Series from the fleet, or a Rolls-Royce Ghost or Bentley Flying Spur arranged on request, all with a chauffeur. Your own car can be driven too."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the chauffeur wait during the ceremony?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The car stays at the door or close by, and is ready when the ceremony ends."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you also take the guests?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A V-Class, a Sprinter or a mini coach for up to nineteen moves guests between the places of the day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can ribbons or flowers be arranged?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Ribbons and flowers on the car can be arranged; tell us the colours and the style when you enquire."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a minimum booking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The minimum is discussed when you enquire, and depends on the car and the shape of the day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How far ahead should we arrange it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As soon as the date is fixed. The Ghost and the Bentley are arranged with notice, and the details of the day can follow later."
+          }
+        }
+      ]
+    }
